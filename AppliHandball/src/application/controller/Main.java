@@ -73,4 +73,8 @@ public class Main extends Application {
             e.printStackTrace();
         }
 	}
+	
+	public static void stopApp() {
+		//trouver un moyen de stopper l'application
+	}
 }

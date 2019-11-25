@@ -3,10 +3,10 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.StartMenuController">
    <children>
-      <Button alignment="CENTER" layoutX="179.0" layoutY="150.0" mnemonicParsing="false" text="Commencer match" />
-      <Button layoutX="203.0" layoutY="250.0" mnemonicParsing="false" text="Statistiques" />
-      <Button layoutX="218.0" layoutY="350.0" mnemonicParsing="false" text="Quitter" />
+      <Button fx:id="reatTimeButton" alignment="CENTER" layoutX="179.0" layoutY="150.0" mnemonicParsing="false" onAction="#handleRealTime" text="Commencer match" />
+      <Button fx:id="statsButton" layoutX="203.0" layoutY="250.0" mnemonicParsing="false" text="Statistiques" />
+      <Button fx:id="exitButton" layoutX="218.0" layoutY="350.0" mnemonicParsing="false" text="Quitter" />
    </children>
 </AnchorPane>

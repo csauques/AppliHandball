@@ -2,7 +2,6 @@ package application.controller;
 
 
 import application.model.Person;
-
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -14,7 +13,7 @@ import javafx.fxml.FXMLLoader;
 public class Main extends Application {
 	
 	private static Stage primaryStage;
-    private BorderPane rootLayout;
+    private static BorderPane rootLayout;
     //trouver un moyen de stocker tous les joueurs dans une structur de donnée (liste peut etre ??)
     
     
@@ -64,6 +63,14 @@ public class Main extends Application {
 	}
 	
 	public static void changeScene(String scenePath) {
-		// TODO
+		try {
+			//recuperation et affichage de la scene voulue cependant il va falloir gérer les tailles des fenetres 
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource(scenePath));
+            AnchorPane menu = (AnchorPane) loader.load();
+            rootLayout.setCenter(menu);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 	}
 }

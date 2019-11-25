@@ -1,5 +1,8 @@
 package application.controller;
 
+
+import application.model.Person;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -10,26 +13,27 @@ import javafx.fxml.FXMLLoader;
 
 public class Main extends Application {
 	
-	private Stage primaryStage;
+	private static Stage primaryStage;
     private BorderPane rootLayout;
-
+    //trouver un moyen de stocker tous les joueurs dans une structur de donnée (liste peut etre ??)
+    
+    
 	@Override
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;
         this.primaryStage.setTitle("AppliHandball");
 
         initRootLayout();
-
         showMenu();
 	}
 	
 	public void initRootLayout() {
         try {
-            // Load root layout from fxml file.
+            // chargeùent du rootLayout qui sert de base à toute l'application
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("../view/RootLayout.fxml"));
             rootLayout = (BorderPane) loader.load();
-            // Show the scene containing the root layout.
+            // //affichage du rootLayout
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
             primaryStage.show();
@@ -40,22 +44,26 @@ public class Main extends Application {
 	
 	public void showMenu() {
         try {
-            // Load person overview.
+            // chargement du meu de demarage
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("../view/StartMenu.fxml"));
             AnchorPane menu = (AnchorPane) loader.load();
-            // Set person overview into the center of root layout.
+           //afichage du menu demarrage au milieu du rootLAyout
             rootLayout.setCenter(menu);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 	
-	public Stage getPrimaryStage() {
+	public static Stage getPrimaryStage() {
         return primaryStage;
     }
 
 	public static void main(String[] args) {
 		launch(args);
+	}
+	
+	public static void changeScene(String scenePath) {
+		// TODO
 	}
 }

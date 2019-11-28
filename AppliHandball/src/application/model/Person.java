@@ -10,10 +10,11 @@ public class Person {
 	private int _nbRed;
 	
 	private boolean isAvaliable = true;
+	private boolean isPlaying = false;
 	
 	
 	
-	Person(String firstName, String lastName, int number) {
+	public Person(String firstName, String lastName, int number) {
 		this._firstName = firstName;
 		this._lastName = lastName;
 		this._number = number;
@@ -51,6 +52,10 @@ public class Person {
 		return isAvaliable;
 	}
 	
+	public boolean isPlaying() {
+		return isPlaying;
+	}
+	
 	//setters
 	public void addYellow() {
 		if(_nbYellow == 0) {
@@ -79,6 +84,10 @@ public class Person {
 	
 	public void setIsAvaliable(boolean isAvaliable) {
 		this.isAvaliable = isAvaliable;
+	}
+	
+	public void setIsPlaying(boolean val) {
+		isPlaying = val;
 	}
 	
 	

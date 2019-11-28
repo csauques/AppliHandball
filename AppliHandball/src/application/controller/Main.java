@@ -3,6 +3,8 @@ package application.controller;
 
 import application.model.Person;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import java.io.IOException;
@@ -14,7 +16,23 @@ public class Main extends Application {
 	
 	private static Stage primaryStage;
     private static BorderPane rootLayout;
+    private static Scene scene;
     //trouver un moyen de stocker tous les joueurs dans une structur de donnée (liste peut etre ??)
+    
+    private ObservableList<Person> personEquip1 = FXCollections.observableArrayList();
+    private ObservableList<Person> personEquip2 = FXCollections.observableArrayList();
+    
+    public Main() {
+        // Add some sample data
+    	personEquip1.add(new Person("Hans", "Muster", 1));
+    	personEquip1.add(new Person("Hans", "Muster", 2));
+    	personEquip1.add(new Person("Hans", "Muster", 3));
+    	personEquip1.add(new Person("Hans", "Muster", 4));
+    	personEquip1.add(new Person("Hans", "Muster", 5));
+    	personEquip1.add(new Person("Hans", "Muster", 6));
+    	personEquip1.add(new Person("Hans", "Muster", 7));
+    	personEquip1.add(new Person("Hans", "Muster", 8));
+    }
     
     
 	@Override
@@ -28,12 +46,14 @@ public class Main extends Application {
 	
 	public void initRootLayout() {
         try {
-            // chargeùent du rootLayout qui sert de base à toute l'application
+            // chargement du rootLayout qui sert de base à toute l'application
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("../view/RootLayout.fxml"));
             rootLayout = (BorderPane) loader.load();
             // //affichage du rootLayout
-            Scene scene = new Scene(rootLayout);
+            scene = new Scene(rootLayout, 500, 500);
+            //rootLayout.setPrefHeight(500);
+            //rootLayout.setPrefWidth(500);
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {
@@ -62,12 +82,16 @@ public class Main extends Application {
 		launch(args);
 	}
 	
-	public static void changeScene(String scenePath) {
+	public static void changeScene(String scenePath, double lon,double lar) {
 		try {
 			//recuperation et affichage de la scene voulue cependant il va falloir gérer les tailles des fenetres 
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource(scenePath));
             AnchorPane menu = (AnchorPane) loader.load();
+            rootLayout.setPrefHeight(lar);
+            rootLayout.setPrefWidth(lon);
+            primaryStage.setMaximized(true);
+            primaryStage.setScene(scene);
             rootLayout.setCenter(menu);
         } catch (IOException e) {
             e.printStackTrace();

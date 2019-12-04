@@ -1,10 +1,15 @@
 package application.model;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class Person {
 	
-	private String _firstName;
-	private String _lastName;
-	private int _number;
+	private StringProperty _firstName;
+	private StringProperty _lastName;
+	private StringProperty _number;
 	private int _nbExcl;
 	private int _nbYellow;
 	private int _nbRed;
@@ -14,26 +19,26 @@ public class Person {
 	
 	
 	
-	public Person(String firstName, String lastName, int number) {
-		this._firstName = firstName;
-		this._lastName = lastName;
-		this._number = number;
+	public Person(String firstName, String lastName, String number) {
+		this._firstName = new SimpleStringProperty(firstName);
+		this._lastName = new SimpleStringProperty(lastName);
+		this._number = new SimpleStringProperty(number);
 		this._nbExcl = 0;
 		this._nbRed = 0;
 		this._nbYellow= 0;
 	}
 	
 	//getters
-	public int getNumber() {
-		return _number;
+	public String getNumber() {
+		return _number.get();
 	}
 	
 	public String getFirstName() {
-		return _firstName;
+		return _firstName.get();
 	}
 	
 	public String getLastName() {
-		return _lastName;
+		return _lastName.get();
 	}
 	
 	public int getNbExcl() {
@@ -89,6 +94,19 @@ public class Person {
 	public void setIsPlaying(boolean val) {
 		isPlaying = val;
 	}
+	
+	public StringProperty firstNameProperty() {
+        return _firstName;
+    }
+	
+	public StringProperty lastNameProperty() {
+        return _lastName;
+    }
+	public StringProperty numberProperty() {
+        return _number;
+    }
+	
+
 	
 	
 	

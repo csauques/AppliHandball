@@ -19,22 +19,38 @@ public class Main extends Application {
     private static Scene scene;
     //trouver un moyen de stocker tous les joueurs dans une structur de donnée (liste peut etre ??)
     
-    private ObservableList<Person> personEquip1 = FXCollections.observableArrayList();
-    private ObservableList<Person> personEquip2 = FXCollections.observableArrayList();
+    private static ObservableList<Person> personEquip1 = FXCollections.observableArrayList();
+    private static ObservableList<Person> personEquip2 = FXCollections.observableArrayList();
     
     public Main() {
         // Add some sample data
-    	personEquip1.add(new Person("Hans", "Muster", 1));
-    	personEquip1.add(new Person("Hans", "Muster", 2));
-    	personEquip1.add(new Person("Hans", "Muster", 3));
-    	personEquip1.add(new Person("Hans", "Muster", 4));
-    	personEquip1.add(new Person("Hans", "Muster", 5));
-    	personEquip1.add(new Person("Hans", "Muster", 6));
-    	personEquip1.add(new Person("Hans", "Muster", 7));
-    	personEquip1.add(new Person("Hans", "Muster", 8));
+    	personEquip1.add(new Person("Hans", "Muster", "1"));
+    	personEquip1.add(new Person("Alain", "Terieur", "2"));
+    	personEquip1.add(new Person("Alex", "Terieur", "3"));
+    	personEquip1.add(new Person("Alain", "Proviste", "4"));
+    	personEquip1.add(new Person("Jean", "Darmerie", "5"));
+    	personEquip1.add(new Person("Hans", "Inusite", "6"));
+    	personEquip1.add(new Person("Marc", "Assin", "7"));
+    	personEquip1.add(new Person("Ric", "Ola", "8"));
+    	
+    	personEquip2.add(new Person("Emile", "Piedeudan", "1"));
+    	personEquip2.add(new Person("Guy", "Tarrebasse", "2"));
+    	personEquip2.add(new Person("Djamel", "Audos", "3"));
+    	personEquip2.add(new Person("Luc", "Arne", "4"));
+    	personEquip2.add(new Person("Charles", "Atan", "5"));
+    	personEquip2.add(new Person("Gerard", "Manvussa", "6"));
+    	personEquip2.add(new Person("Paul", "Lauchon", "7"));
+    	personEquip2.add(new Person("Vincent", "Thimaitre", "8"));
     }
     
-    
+    public static  ObservableList<Person> getPersonData(int nb) {
+    	if(nb == 1) {
+    		return personEquip1;
+    	}else {
+    		return personEquip2;
+    	}
+
+    }
 	@Override
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;

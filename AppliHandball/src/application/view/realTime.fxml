@@ -30,11 +30,11 @@
                                 <items>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                        <children>
-                                          <TableView layoutX="282.0" layoutY="109.0" prefHeight="402.0" prefWidth="742.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <TableView fx:id="personTable1" layoutX="282.0" layoutY="109.0" prefHeight="402.0" prefWidth="742.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <columns>
-                                              <TableColumn prefWidth="119.0" text="N°" />
-                                              <TableColumn prefWidth="66.0" text="Nom" />
-                                                <TableColumn minWidth="0.0" prefWidth="0.0" text="Prénom" />
+                                              <TableColumn fx:id="numberColumn1" prefWidth="119.0" text="N°" />
+                                              <TableColumn fx:id="firstNameColumn1" prefWidth="66.0" text="Nom" />
+                                                <TableColumn fx:id="lastNameColumn1" minWidth="0.0" prefWidth="0.0" text="Prénom" />
                                                 <TableColumn prefWidth="370.0" />
                                             </columns>
                                              <columnResizePolicy>
@@ -107,11 +107,11 @@
                                 <items>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                        <children>
-                                          <TableView layoutX="184.0" layoutY="64.0" prefHeight="402.0" prefWidth="742.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <TableView fx:id="personTable2" layoutX="184.0" layoutY="64.0" prefHeight="402.0" prefWidth="742.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <columns>
-                                              <TableColumn prefWidth="75.0" text="N°" />
-                                                <TableColumn prefWidth="75.0" text="Nom" />
-                                                <TableColumn prefWidth="75.0" text="Prénom" />
+                                              <TableColumn fx:id="numberColumn2" prefWidth="75.0" text="N°" />
+                                                <TableColumn fx:id="firstNameColumn2" prefWidth="75.0" text="Nom" />
+                                                <TableColumn fx:id="lastNameColumn2" prefWidth="75.0" text="Prénom" />
                                                 <TableColumn prefWidth="75.0" />
                                             </columns>
                                              <columnResizePolicy>

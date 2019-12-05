@@ -116,7 +116,7 @@ public class Main extends Application {
         }
 	}
 	
-	 public static boolean showPersonEditDialog(Person person, ObservableList<Person> Remplacants) {
+	 public static boolean showSwitchWindow(Person person, ObservableList<Person> Remplacants) {
 	        try {
 	            // Load the fxml file and create a new stage for the popup dialog.
 	            FXMLLoader loader = new FXMLLoader();

@@ -5,16 +5,21 @@ import application.model.Person;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Border;
 
 public class RealTimeController {
 	
 	private ObservableList<Person> joueurRemp1 = FXCollections.observableArrayList();
 	private ObservableList<Person> joueurRemp2 = FXCollections.observableArrayList();
+	
+	private ObservableList<Person> equipe1= FXCollections.observableArrayList();
+	private ObservableList<Person> equipe2 = FXCollections.observableArrayList();
 	
 	@FXML
     private TableView<Person> personTable1;
@@ -88,8 +93,7 @@ public class RealTimeController {
     }
     
     public void setMainApp() {
-    	ObservableList<Person> equipe1= FXCollections.observableArrayList();
-    	ObservableList<Person> equipe2 = FXCollections.observableArrayList();
+    	
         // Add observable list data to the table
     	
     	equipe1 = Main.getPersonData(1);
@@ -130,6 +134,8 @@ public class RealTimeController {
         personTable2.setItems(equipe2);
     }
     
+    
+    
    private void showPersonDetails(Person person, int nb) {
         if (person != null) {
             if(nb == 1) {
@@ -159,7 +165,39 @@ public class RealTimeController {
    
    @FXML
    public void remplacer1() {
-	   
+	   Person selectedPerson = personTable1.getSelectionModel().getSelectedItem();
+       if (selectedPerson != null) {
+           boolean okClicked = Main.showSwitchWindow(selectedPerson, joueurRemp1);
+           if (okClicked) {
+               selectedPerson.setIsPlaying(false);
+               
+               for(int i = 0; i < equipe1.size(); i++) {
+            	   if(!(equipe1.get(i).isPlaying())) {
+            		   for(int j = 0; j< joueurRemp1.size(); j++) {
+            			   if(joueurRemp1.get(j).isPlaying()) {
+            				   Person temp;
+            				   temp = joueurRemp1.get(j);
+            				   joueurRemp1.remove(j);
+            				   equipe1.add(temp);
+            				   joueurRemp1.add(equipe1.get(i));
+            				   equipe1.remove(i);
+            				   personTable1.setItems(equipe1);
+            			   }
+            		   }
+            	   }
+               }
+           }
+
+       } else {
+           // Nothing selected.
+           Alert alert = new Alert(AlertType.WARNING);
+           alert.initOwner(Main.getPrimaryStage());
+           alert.setTitle("No Selection");
+           alert.setHeaderText("No Person Selected");
+           alert.setContentText("Please select a person in the table.");
+
+           alert.showAndWait();
+       }
    }
 
 }

@@ -30,7 +30,7 @@
                                 <items>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                        <children>
-                                          <TableView fx:id="personTable1" layoutX="282.0" layoutY="109.0" prefHeight="402.0" prefWidth="742.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <TableView fx:id="personTable1" fixedCellSize="6.0" layoutX="282.0" layoutY="109.0" prefHeight="402.0" prefWidth="742.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <columns>
                                               <TableColumn fx:id="numberColumn1" prefWidth="119.0" text="N°" />
                                               <TableColumn fx:id="firstNameColumn1" prefWidth="66.0" text="Nom" />
@@ -46,10 +46,10 @@
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                        <children>
                                           <Accordion layoutX="212.0" layoutY="49.0" />
-                                          <GridPane layoutX="495.0" layoutY="36.0" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="47.0">
+                                          <GridPane alignment="CENTER" layoutX="495.0" layoutY="36.0" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="47.0">
                                             <columnConstraints>
                                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                             </columnConstraints>
                                             <rowConstraints>
                                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -62,6 +62,10 @@
                                                 <Label text="Cartons jaunes" GridPane.rowIndex="1" />
                                                 <Label text="Exclusions" GridPane.rowIndex="2" />
                                                 <Label text="Cartons rouges" GridPane.rowIndex="3" />
+                                                <Label fx:id="numberLabel1" alignment="CENTER" contentDisplay="RIGHT" text="Label" textAlignment="RIGHT" GridPane.columnIndex="1" />
+                                                <Label fx:id="nbYellowLabel1" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Label fx:id="nbExclLabel1" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Label fx:id="nbRedLabel1" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                              </children>
                                           </GridPane>
                                           <ImageView fitHeight="90.0" fitWidth="60.0" layoutX="14.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
@@ -125,7 +129,7 @@
                                           <GridPane layoutX="494.0" layoutY="36.0" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="48.0">
                                              <columnConstraints>
                                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                              </columnConstraints>
                                              <rowConstraints>
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -138,6 +142,10 @@
                                                 <Label text="Cartons jaunes" GridPane.rowIndex="1" />
                                                 <Label text="Exclusions" GridPane.rowIndex="2" />
                                                 <Label text="Cartons rouges" GridPane.rowIndex="3" />
+                                                <Label fx:id="numberLabel2" text="Label" GridPane.columnIndex="1" />
+                                                <Label fx:id="nbYellowLabel2" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Label fx:id="nbExclLabel2" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Label fx:id="nbRedLabel2" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                              </children>
                                           </GridPane>
                                           <ImageView fitHeight="90.0" fitWidth="60.0" layoutX="14.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">

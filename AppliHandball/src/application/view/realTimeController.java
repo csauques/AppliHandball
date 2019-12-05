@@ -2,12 +2,17 @@ package application.view;
 
 import application.controller.Main;
 import application.model.Person;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 public class realTimeController {
+	
+	private ObservableList<Person> joueurRemp1 = FXCollections.observableArrayList();
+	private ObservableList<Person> joueurRemp2 = FXCollections.observableArrayList();
 	
 	@FXML
     private TableView<Person> personTable1;
@@ -27,17 +32,23 @@ public class realTimeController {
     private TableColumn<Person, String> numberColumn2;
 
     @FXML
-    private Label firstNameLabel;
+    private Label numberLabel2;
     @FXML
-    private Label lastNameLabel;
+    private Label nbExclLabel2;
     @FXML
-    private Label numberLabel;
+    private Label nbRedLabel2;
     @FXML
-    private Label nbExclLabel;
+    private Label nbYellowLabel2;
+    
+
     @FXML
-    private Label nbRedLabel;
+    private Label numberLabel1;
     @FXML
-    private Label nbYellowLabel;
+    private Label nbExclLabel1;
+    @FXML
+    private Label nbRedLabel1;
+    @FXML
+    private Label nbYellowLabel1;
 
     
     public realTimeController() {
@@ -47,55 +58,100 @@ public class realTimeController {
     private void initialize() {
     	// Initialize the person table with the two columns.
         firstNameColumn1.setCellValueFactory(
-                cellData -> cellData.getValue().firstNameProperty());
-        lastNameColumn1.setCellValueFactory(
                 cellData -> cellData.getValue().lastNameProperty());
+        lastNameColumn1.setCellValueFactory(
+                cellData -> cellData.getValue().firstNameProperty());
         numberColumn1.setCellValueFactory(
                 cellData -> cellData.getValue().numberProperty());
         
         firstNameColumn2.setCellValueFactory(
-                cellData -> cellData.getValue().firstNameProperty());
-        lastNameColumn2.setCellValueFactory(
                 cellData -> cellData.getValue().lastNameProperty());
+        lastNameColumn2.setCellValueFactory(
+                cellData -> cellData.getValue().firstNameProperty());
         numberColumn2.setCellValueFactory(
                 cellData -> cellData.getValue().numberProperty());
         
         setMainApp();
 
-        // Clear person details.
-        //showPersonDetails(null);
+        //Clear person details.
+        showPersonDetails(null, 0);
 
-        // Listen for selection changes and show the person details when changed.
-        //personTable.getSelectionModel().selectedItemProperty().addListener(
-        //        (observable, oldValue, newValue) -> showPersonDetails(newValue));
+        //Listen for selection changes and show the person details when changed.
+        personTable1.getSelectionModel().selectedItemProperty().addListener(
+              (observable, oldValue, newValue) -> showPersonDetails(newValue, 1));
+        
+        personTable2.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> showPersonDetails(newValue, 2));
     }
     
     public void setMainApp() {
+    	ObservableList<Person> equipe1= FXCollections.observableArrayList();
+    	ObservableList<Person> equipe2 = FXCollections.observableArrayList();
         // Add observable list data to the table
-        personTable1.setItems(Main.getPersonData(1));
-        personTable2.setItems(Main.getPersonData(2));
+    	
+    	equipe1 = Main.getPersonData(1);
+    	equipe2 = Main.getPersonData(2);
+    	
+    	//récupration des joueurs remplaçant et stockage
+    	for(int i = 0 ; i < equipe1.size(); i++) {
+    		if(!(equipe1.get(i).isPlaying())) {
+    			joueurRemp1.add(equipe1.get(i));
+    			//equipe1.remove(i);
+    		}
+    	}
+    	
+    	for(int i = 0 ; i < equipe2.size(); i++) {
+    		if(!(equipe2.get(i).isPlaying())) {
+    			joueurRemp2.add(equipe2.get(i));
+    			//equipe2.remove(i);
+    		}
+    	}
+    	
+    	
+    	//suppression des personnes n'etant pas en jeu 
+    	for(int i = 0; i < joueurRemp1.size(); i++) {
+    		for(int j = 0; j < equipe1.size(); j++) {
+    			if(joueurRemp1.get(i) == equipe1.get(j)) {
+    				equipe1.remove(j);
+    			}
+    		}
+    	}
+    	for(int i = 0; i < joueurRemp2.size(); i++) {
+    		for(int j = 0; j < equipe2.size(); j++) {
+    			if(joueurRemp2.get(i) == equipe2.get(j)) {
+    				equipe2.remove(j);
+    			}
+    		}
+    	}
+        personTable1.setItems(equipe1);
+        personTable2.setItems(equipe2);
     }
     
-   /* private void showPersonDetails(Person person) {
+   private void showPersonDetails(Person person, int nb) {
         if (person != null) {
-            // Fill the labels with info from the person object.
-            firstNameLabel.setText(person.getFirstName());
-            lastNameLabel.setText(person.getLastName());
-            streetLabel.setText(person.getStreet());
-            postalCodeLabel.setText(Integer.toString(person.getPostalCode()));
-            cityLabel.setText(person.getCity());
+            if(nb == 1) {
+            	numberLabel1.setText(person.getNumber());
+            	nbExclLabel1.setText(Integer.toString(person.getNbExcl()));
+            	nbRedLabel1.setText(Integer.toString(person.getRed()));
+            	nbYellowLabel1.setText(Integer.toString(person.getYellow()));
+            }else {
+            	numberLabel2.setText(person.getNumber());
+            	nbExclLabel2.setText(Integer.toString(person.getNbExcl()));
+            	nbRedLabel2.setText(Integer.toString(person.getRed()));
+            	nbYellowLabel2.setText(Integer.toString(person.getYellow()));
+            }
 
-            // TODO: We need a way to convert the birthday into a String!
-            birthdayLabel.setText(DateUtil.format(person.getBirthday()));
         } else {
-            // Person is null, remove all the text.
-            firstNameLabel.setText("");
-            lastNameLabel.setText("");
-            streetLabel.setText("");
-            postalCodeLabel.setText("");
-            cityLabel.setText("");
-            birthdayLabel.setText("");
+            
+           numberLabel1.setText("");
+           numberLabel2.setText("");
+           nbExclLabel2.setText("");
+           nbExclLabel1.setText("");
+           nbRedLabel2.setText("");
+           nbRedLabel1.setText("");
+           nbYellowLabel2.setText("");
+           nbYellowLabel1.setText("");
         }
-    }*/
+    }
 
 }

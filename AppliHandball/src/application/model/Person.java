@@ -19,13 +19,14 @@ public class Person {
 	
 	
 	
-	public Person(String firstName, String lastName, String number) {
+	public Person(String firstName, String lastName, String number, boolean isP) {
 		this._firstName = new SimpleStringProperty(firstName);
 		this._lastName = new SimpleStringProperty(lastName);
 		this._number = new SimpleStringProperty(number);
 		this._nbExcl = 0;
 		this._nbRed = 0;
 		this._nbYellow= 0;
+		this.isPlaying = isP;
 	}
 	
 	//getters

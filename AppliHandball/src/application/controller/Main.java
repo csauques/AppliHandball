@@ -24,23 +24,23 @@ public class Main extends Application {
     
     public Main() {
         // Add some sample data
-    	personEquip1.add(new Person("Hans", "Muster", "1"));
-    	personEquip1.add(new Person("Alain", "Terieur", "2"));
-    	personEquip1.add(new Person("Alex", "Terieur", "3"));
-    	personEquip1.add(new Person("Alain", "Proviste", "4"));
-    	personEquip1.add(new Person("Jean", "Darmerie", "5"));
-    	personEquip1.add(new Person("Hans", "Inusite", "6"));
-    	personEquip1.add(new Person("Marc", "Assin", "7"));
-    	personEquip1.add(new Person("Ric", "Ola", "8"));
+    	personEquip1.add(new Person("Hans", "Muster", "1", true));
+    	personEquip1.add(new Person("Alain", "Terieur", "2", true));
+    	personEquip1.add(new Person("Alex", "Terieur", "3", true));
+    	personEquip1.add(new Person("Alain", "Proviste", "4", true));
+    	personEquip1.add(new Person("Jean", "Darmerie", "5", true));
+    	personEquip1.add(new Person("Hans", "Inusite", "6", false));
+    	personEquip1.add(new Person("Marc", "Assin", "7", false));
+    	personEquip1.add(new Person("Ric", "Ola", "8", false));
     	
-    	personEquip2.add(new Person("Emile", "Piedeudan", "1"));
-    	personEquip2.add(new Person("Guy", "Tarrebasse", "2"));
-    	personEquip2.add(new Person("Djamel", "Audos", "3"));
-    	personEquip2.add(new Person("Luc", "Arne", "4"));
-    	personEquip2.add(new Person("Charles", "Atan", "5"));
-    	personEquip2.add(new Person("Gerard", "Manvussa", "6"));
-    	personEquip2.add(new Person("Paul", "Lauchon", "7"));
-    	personEquip2.add(new Person("Vincent", "Thimaitre", "8"));
+    	personEquip2.add(new Person("Emile", "Piedeudan", "1", true));
+    	personEquip2.add(new Person("Guy", "Tarrebasse", "2", true));
+    	personEquip2.add(new Person("Djamel", "Audos", "3", true));
+    	personEquip2.add(new Person("Luc", "Arne", "4", true));
+    	personEquip2.add(new Person("Charles", "Atan", "5", true));
+    	personEquip2.add(new Person("Gerard", "Manvussa", "6", false));
+    	personEquip2.add(new Person("Paul", "Lauchon", "7", false));
+    	personEquip2.add(new Person("Vincent", "Thimaitre", "8", false));
     }
     
     public static  ObservableList<Person> getPersonData(int nb) {

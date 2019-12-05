@@ -6,10 +6,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.SplitPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.Border;
 
-public class realTimeController {
+public class RealTimeController {
 	
 	private ObservableList<Person> joueurRemp1 = FXCollections.observableArrayList();
 	private ObservableList<Person> joueurRemp2 = FXCollections.observableArrayList();
@@ -49,13 +51,14 @@ public class realTimeController {
     private Label nbRedLabel1;
     @FXML
     private Label nbYellowLabel1;
-
     
-    public realTimeController() {
+    
+    public RealTimeController() {
     }
     
     @FXML
     private void initialize() {
+    	
     	// Initialize the person table with the two columns.
         firstNameColumn1.setCellValueFactory(
                 cellData -> cellData.getValue().lastNameProperty());
@@ -153,5 +156,10 @@ public class realTimeController {
            nbYellowLabel1.setText("");
         }
     }
+   
+   @FXML
+   public void remplacer1() {
+	   
+   }
 
 }

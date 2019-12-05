@@ -16,9 +16,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.realTimeController">
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.RealTimeController">
    <children>
-      <SplitPane dividerPositions="0.5" layoutX="770.0" layoutY="407.0" orientation="VERTICAL" prefHeight="1000.0" prefWidth="1500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.4879759519038076" layoutX="770.0" layoutY="407.0" orientation="VERTICAL" prefHeight="1000.0" prefWidth="1500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
@@ -26,11 +26,11 @@
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
-                              <SplitPane dividerPositions="0.65" layoutX="284.0" layoutY="213.0" orientation="VERTICAL" prefHeight="626.0" prefWidth="744.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <SplitPane fx:id="test" dividerPositions="0.6200417536534447" layoutX="284.0" layoutY="213.0" orientation="VERTICAL" prefHeight="626.0" prefWidth="744.0" scaleShape="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <items>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                        <children>
-                                          <TableView fx:id="personTable1" fixedCellSize="6.0" layoutX="282.0" layoutY="109.0" prefHeight="402.0" prefWidth="742.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <TableView fx:id="personTable1" layoutX="282.0" layoutY="109.0" prefHeight="239.0" prefWidth="742.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <columns>
                                               <TableColumn fx:id="numberColumn1" prefWidth="119.0" text="N°" />
                                               <TableColumn fx:id="firstNameColumn1" prefWidth="66.0" text="Nom" />
@@ -68,7 +68,7 @@
                                                 <Label fx:id="nbRedLabel1" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                              </children>
                                           </GridPane>
-                                          <ImageView fitHeight="90.0" fitWidth="60.0" layoutX="14.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fitHeight="90.0" fitWidth="60.0" layoutX="14.0" layoutY="66.0" onMouseClicked="#remplacer1" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../../image/icons8-changement-de-joueur-100.png" />
                                              </image>
@@ -107,7 +107,7 @@
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
-                              <SplitPane dividerPositions="0.65" layoutX="179.0" layoutY="249.0" orientation="VERTICAL" prefHeight="626.0" prefWidth="744.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <SplitPane dividerPositions="0.6517311608961304" layoutX="179.0" layoutY="249.0" orientation="VERTICAL" prefHeight="626.0" prefWidth="744.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <items>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                        <children>

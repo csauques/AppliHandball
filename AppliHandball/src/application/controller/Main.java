@@ -2,9 +2,11 @@ package application.controller;
 
 
 import application.model.Person;
+import application.view.SwitchWindowController;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import java.io.IOException;
@@ -113,6 +115,36 @@ public class Main extends Application {
             e.printStackTrace();
         }
 	}
+	
+	 public static boolean showPersonEditDialog(Person person, ObservableList<Person> Remplacants) {
+	        try {
+	            // Load the fxml file and create a new stage for the popup dialog.
+	            FXMLLoader loader = new FXMLLoader();
+	            loader.setLocation(Main.class.getResource("../view/SwitchWindow.fxml"));
+	            AnchorPane page = (AnchorPane) loader.load();
+
+	            // Create the dialog Stage.
+	            Stage dialogStage = new Stage();
+	            dialogStage.setTitle("Changement de joueur");
+	            dialogStage.initModality(Modality.WINDOW_MODAL);
+	            dialogStage.initOwner(primaryStage);
+	            Scene scene = new Scene(page);
+	            dialogStage.setScene(scene);
+
+	            // Set the person into the controller.
+	            SwitchWindowController controller = loader.getController();
+	            controller.setDialogStage(dialogStage);
+	            controller.setPerson(person, Remplacants);
+
+	            // Show the dialog and wait until the user closes it
+	            dialogStage.showAndWait();
+
+	            return controller.isOkClicked();
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	            return false;
+	        }
+	    }
 	
 	public static void stopApp() {
 		//trouver un moyen de stopper l'application

@@ -240,5 +240,9 @@ public class RealTimeController {
    public void addYellow2() {
 	   addYellow(personTable2, 2);
    }
+   
+   public void test() {
+	   System.out.println("test");
+   }
 
 }

@@ -70,7 +70,6 @@ public class SwitchWindowController {
 	  
 	  @FXML
 	  private void handleOk() {
-		  System.out.println("salut t'a bien cliqué");
 		  	okClicked = true;
 		  	Person selectedPerson = tabRemp.getSelectionModel().getSelectedItem();
 		       if (selectedPerson != null) {

@@ -1,6 +1,7 @@
 package application.view;
 
 import application.controller.Main;
+import application.model.Chrono;
 import application.model.Person;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -57,6 +58,18 @@ public class RealTimeController {
     @FXML
     private Label nbYellowLabel1;
     
+    @FXML
+    private Label chronoMinute;
+    
+    @FXML
+    private Label chronoSeconde;
+    
+    Chrono chrono = new Chrono();
+    
+    long min, sec = 0;
+    
+    boolean chronoPause = true;
+    
     
     public RealTimeController() {
     }
@@ -79,10 +92,11 @@ public class RealTimeController {
         numberColumn2.setCellValueFactory(
                 cellData -> cellData.getValue().numberProperty());
         
-        setMainApp();
+        //setMainApp();
+        t.start();
 
         //Clear person details.
-        showPersonDetails(null, 0);
+        //showPersonDetails(null, 0);
 
         //Listen for selection changes and show the person details when changed.
         personTable1.getSelectionModel().selectedItemProperty().addListener(
@@ -240,5 +254,53 @@ public class RealTimeController {
    public void addYellow2() {
 	   addYellow(personTable2, 2);
    }
+   
+   @FXML 
+   public void demarrerChrono() {
+	   min = 0;
+	   sec = 0;
+	   chronoPause = false;
+	   
+   }
+   
+   @FXML 
+   public void pauseChrono() {
+	   chronoPause = true; 
+   }
+   
+   @FXML 
+   public void repprendreChrono() {
+	   chronoPause = false;
+   }
+   
+   Thread t = new Thread() {
+	   public void run() {
+		   while(true) {
+			   try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			   if(chronoPause == false) {
+				   sec++;
+				   if(sec == 60) {
+					   min++;
+					   sec = 0;
+				   }
+			   }
+			   chronoMinute.setText(Long.toString(min));
+			   chronoSeconde.setText(Long.toString(sec));
+			   
+			}
+		   }
+
+   };
+   
+   
+   
+   
+   
+   
 
 }

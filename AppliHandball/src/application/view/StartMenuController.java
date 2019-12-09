@@ -18,7 +18,7 @@ public class StartMenuController {
 	
 	@FXML
 	public void  handleRealTime() {
-		Main.changeScene("../view/realTime.fxml", 1000, 800);
+		Main.changeScene("../view/RealTimev1.fxml", 1000, 800);
 	}
 	
 	@FXML

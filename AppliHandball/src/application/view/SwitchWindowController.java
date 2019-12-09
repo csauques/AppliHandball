@@ -74,7 +74,20 @@ public class SwitchWindowController {
 		  	okClicked = true;
 		  	Person selectedPerson = tabRemp.getSelectionModel().getSelectedItem();
 		       if (selectedPerson != null) {
-		    	   selectedPerson.setIsPlaying(true);
+		    	   if(selectedPerson.isAvaliable()) {
+			    	   selectedPerson.setIsPlaying(true);
+		    	   }else {
+		    		   //cette personne est disqualifiée et ets donc inutilisable
+		    		   // Nothing selected.
+			           Alert alert = new Alert(AlertType.WARNING);
+			           alert.initOwner(Main.getPrimaryStage());
+			           alert.setTitle("Joueur indisponible");
+			           alert.setHeaderText("Ce joueur n'est pas disponible");
+			           alert.setContentText("Merci de choisir un autre joueur pour remplacer.");
+
+			           alert.showAndWait();
+		    	   }
+
 		       } else {
 		           // Nothing selected.
 		           Alert alert = new Alert(AlertType.WARNING);

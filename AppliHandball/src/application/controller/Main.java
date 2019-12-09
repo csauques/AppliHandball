@@ -147,6 +147,6 @@ public class Main extends Application {
 	    }
 	
 	public static void stopApp() {
-		//trouver un moyen de stopper l'application
+		primaryStage.close();
 	}
 }

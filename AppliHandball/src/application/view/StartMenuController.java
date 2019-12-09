@@ -26,6 +26,8 @@ public class StartMenuController {
 		Main.changeScene("../view/Stats.fxml", 1000, 800);
 	}
 	
+	@FXML
 	public void exit() {
+		Main.stopApp();
 	}
 }

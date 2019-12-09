@@ -26,7 +26,7 @@
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
-                              <SplitPane  dividerPositions="0.6200417536534447" layoutX="284.0" layoutY="213.0" orientation="VERTICAL" prefHeight="626.0" prefWidth="744.0" scaleShape="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <SplitPane dividerPositions="0.6200417536534447" layoutX="284.0" layoutY="213.0" orientation="VERTICAL" prefHeight="626.0" prefWidth="744.0" scaleShape="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <items>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                        <children>
@@ -84,7 +84,7 @@
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </ImageView>
-                                          <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="124.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="124.0" layoutY="64.0" onMouseClicked="#addExcl1" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../../image/200px-Red_card.svg.png" />
                                              </image>
@@ -94,7 +94,7 @@
                                           </ImageView>
                                           <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="174.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../../../../../../../../../../home/20/csauques/git/AppliHandball/AppliHandball/src/image/Carton_bleu.jpg" />
+                                                <Image url="@../../image/Carton_bleu.png" />
                                              </image>
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
@@ -164,7 +164,7 @@
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </ImageView>
-                                          <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="124.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="124.0" layoutY="64.0" onMouseClicked="#addExcl2" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../../image/200px-Red_card.svg.png" />
                                              </image>
@@ -174,7 +174,7 @@
                                           </ImageView>
                                           <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="174.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../../../../../../../../../../home/20/csauques/git/AppliHandball/AppliHandball/src/image/Carton_bleu.jpg" />
+                                                <Image url="@../../image/Carton_bleu.png" />
                                              </image>
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />

@@ -231,6 +231,23 @@ public class RealTimeController {
 
    }
    
+   public void addExcl(TableView<Person> tabPers, int nb) {
+	   Person selectedPerson = tabPers.getSelectionModel().getSelectedItem();
+	   if(selectedPerson != null) {
+		   selectedPerson.addExcl();
+		   showPersonDetails(selectedPerson, nb);
+	   }else {
+		// Nothing selected.
+           Alert alert = new Alert(AlertType.WARNING);
+           alert.initOwner(Main.getPrimaryStage());
+           alert.setTitle("Aucune personne n'a été sélectionnée");
+           alert.setHeaderText("Aucune persone n'est sélectionnée");
+           alert.setContentText("Merci de bien vouloir sélectionner une persone.");
+
+           alert.showAndWait();
+	   }
+   }
+   
    @FXML 
    public void addYellow1() {
 	   addYellow(personTable1, 1);
@@ -239,6 +256,16 @@ public class RealTimeController {
    @FXML 
    public void addYellow2() {
 	   addYellow(personTable2, 2);
+   }
+   
+   @FXML
+   public void addExcl1() {
+	   addExcl(personTable1, 1);
+   }
+   
+   @FXML
+   public void addExcl2() {
+	   addExcl(personTable2, 2);
    }
 
 }

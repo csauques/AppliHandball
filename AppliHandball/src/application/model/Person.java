@@ -75,7 +75,7 @@ public class Person {
 			Alert dialogC= new Alert(AlertType.CONFIRMATION);
 			dialogC.setTitle("voulez-vous donner un carton jaune à ce joueur ?");
 			dialogC.setHeaderText(null);
-			dialogC.setContentText("souhaitez-vous réellement donner un carton au joueur numéro".concat(this.getNumber()));
+			dialogC.setContentText("souhaitez-vous réellement donner un carton au joueur numéro ".concat(this.getNumber()).concat(" ?"));
 			Optional<ButtonType> answer= dialogC.showAndWait();
 			if(answer.get() == ButtonType.OK){
 				_nbYellow++;
@@ -95,11 +95,26 @@ public class Person {
 	
 	public void addExcl() {
 		
-		//demander a l'utilisateur de confirmer si il veut vraiment donner une exclusion
-		_nbExcl++;
-		isAvaliable = false;
-		if(_nbYellow == 1 && _nbExcl == 2) {
+		//eventuellement, ajouter une fenetre de dialogue demandant a l'utilisateur de confirmer qu'il veut lui donner le carton
+		Alert dialogC= new Alert(AlertType.CONFIRMATION);
+		dialogC.setTitle("voulez-vous donner un carton jaune à ce joueur ?");
+		dialogC.setHeaderText(null);
+		dialogC.setContentText("souhaitez-vous réellement exclure pendant 2 minutes le joueur ".concat(this.getNumber().concat(" ?")));
+		Optional<ButtonType> answer= dialogC.showAndWait();
+		if(answer.get() == ButtonType.OK){
+			_nbExcl++;
+			//TODO g�rer les timers et autre 
+		}
+		if( _nbExcl == 3) {
 			//avertir l'utilisateur par une fenetre que le joueur est maintenant éjecté du terrain
+			Alert alert = new Alert(AlertType.WARNING);
+	           alert.initOwner(Main.getPrimaryStage());
+	           alert.setTitle("joueur exclu");
+	           alert.setHeaderText("ce joueur en est a a 3 eme exclusion");
+	           alert.setContentText("il est donc disqualifi�. vous pourez l'�changer avec un autre joueur dans 2 minutes");
+
+	           alert.showAndWait();
+	           isAvaliable = false;
 		}
 	}
 	

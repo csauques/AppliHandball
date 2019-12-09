@@ -1,9 +1,15 @@
 package application.model;
 
+import java.util.Optional;
+
+import application.controller.Main;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 
 public class Person {
 	
@@ -66,11 +72,26 @@ public class Person {
 	public void addYellow() {
 		if(_nbYellow == 0) {
 			//eventuellement, ajouter une fenetre de dialogue demandant a l'utilisateur de confirmer qu'il veut lui donner le carton
-			_nbYellow++;
+			Alert dialogC= new Alert(AlertType.CONFIRMATION);
+			dialogC.setTitle("voulez-vous donner un carton jaune à ce joueur ?");
+			dialogC.setHeaderText(null);
+			dialogC.setContentText("souhaitez-vous réellement donner un carton au joueur numéro".concat(this.getNumber()));
+			Optional<ButtonType> answer= dialogC.showAndWait();
+			if(answer.get() == ButtonType.OK){
+				_nbYellow++;
+				}
 		}else {
 			//afficher une fenetre disant que l'utilisateur a deja reçu un avertissement 
+			// Nothing selected.
+	           Alert alert = new Alert(AlertType.WARNING);
+	           alert.initOwner(Main.getPrimaryStage());
+	           alert.setTitle("carton jaune deja reçu");
+	           alert.setHeaderText("ce joueur a deja reçu un carton jaune");
+	           alert.setContentText("impossible d'en ajouter un autre");
+
+	           alert.showAndWait();
+	       }
 		}
-	}
 	
 	public void addExcl() {
 		

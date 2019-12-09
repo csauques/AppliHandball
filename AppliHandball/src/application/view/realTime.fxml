@@ -76,7 +76,7 @@
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </ImageView>
-                                          <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="74.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="74.0" layoutY="64.0" onMouseClicked="#addYellow1" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../../image/Carton_jaune.png" />
                                              </image>
@@ -156,7 +156,7 @@
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </ImageView>
-                                          <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="74.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="74.0" layoutY="63.0" onMouseClicked="#addYellow2" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../../image/Carton_jaune.png" />
                                              </image>

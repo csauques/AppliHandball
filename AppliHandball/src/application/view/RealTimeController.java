@@ -165,23 +165,34 @@ public class RealTimeController {
    
    @FXML
    public void remplacer1() {
-	   Person selectedPerson = personTable1.getSelectionModel().getSelectedItem();
+	   remplacer(personTable1, joueurRemp1, equipe1);
+   }
+   
+   @FXML
+   public void remplacer2() {
+	   remplacer(personTable2, joueurRemp2, equipe2);
+   }
+   
+   
+   
+   public void remplacer(TableView<Person> tabPers, ObservableList<Person> tabRemp, ObservableList<Person> tabEq) {
+	   Person selectedPerson = tabPers.getSelectionModel().getSelectedItem();
        if (selectedPerson != null) {
-           boolean okClicked = Main.showSwitchWindow(selectedPerson, joueurRemp1);
+           boolean okClicked = Main.showSwitchWindow(selectedPerson, tabRemp);
            if (okClicked) {
                selectedPerson.setIsPlaying(false);
                
-               for(int i = 0; i < equipe1.size(); i++) {
-            	   if(!(equipe1.get(i).isPlaying())) {
-            		   for(int j = 0; j< joueurRemp1.size(); j++) {
-            			   if(joueurRemp1.get(j).isPlaying()) {
+               for(int i = 0; i < tabEq.size(); i++) {
+            	   if(!(tabEq.get(i).isPlaying())) {
+            		   for(int j = 0; j< tabRemp.size(); j++) {
+            			   if(tabRemp.get(j).isPlaying()) {
             				   Person temp;
-            				   temp = joueurRemp1.get(j);
-            				   joueurRemp1.remove(j);
-            				   equipe1.add(temp);
-            				   joueurRemp1.add(equipe1.get(i));
-            				   equipe1.remove(i);
-            				   personTable1.setItems(equipe1);
+            				   temp = tabRemp.get(j);
+            				   tabRemp.remove(j);
+            				   tabEq.add(temp);
+            				   tabRemp.add(tabEq.get(i));
+            				   tabEq.remove(i);
+            				   tabPers.setItems(tabEq);
             			   }
             		   }
             	   }
@@ -198,6 +209,12 @@ public class RealTimeController {
 
            alert.showAndWait();
        }
+   }
+   
+   
+   public void addYellow(TableView<Person> tabPers) {
+	   Person selectedPerson = tabPers.getSelectionModel().getSelectedItem();
+	   selectedPerson.addYellow();
    }
 
 }

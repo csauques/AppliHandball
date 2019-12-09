@@ -148,7 +148,7 @@
                                                 <Label fx:id="nbRedLabel2" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                              </children>
                                           </GridPane>
-                                          <ImageView fitHeight="90.0" fitWidth="60.0" layoutX="14.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fitHeight="90.0" fitWidth="60.0" layoutX="14.0" layoutY="66.0" onMouseClicked="#remplacer2" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../../image/icons8-changement-de-joueur-100.png" />
                                              </image>

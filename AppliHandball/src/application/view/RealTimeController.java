@@ -1,10 +1,16 @@
 package application.view;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import application.controller.Main;
-import application.model.Chrono;
 import application.model.Person;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.ScheduledService;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -13,6 +19,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Border;
+import javafx.util.Duration;
 
 public class RealTimeController {
 	
@@ -64,7 +71,6 @@ public class RealTimeController {
     @FXML
     private Label chronoSeconde;
     
-    Chrono chrono = new Chrono();
     
     long min, sec = 0;
     
@@ -74,8 +80,33 @@ public class RealTimeController {
     public RealTimeController() {
     }
     
+	ScheduledService<Void> t = new ScheduledService<Void>() {	
+		protected Task<Void> createTask() {
+			return new Task<Void>(){
+	            protected Void call() throws Exception{
+	            	if(chronoPause == false) {
+	 				   sec=sec+1;
+	 				   if(sec == 60) {
+	 					   min++;
+	 					   sec = 0;
+	 				   }
+	 			   }
+	            	Platform.runLater(new Runnable() {
+	            		public void run () {
+	            			chronoMinute.setText(Long.toString(min));
+	     	 			   chronoSeconde.setText(Long.toString(sec));
+	            		}
+	            	});
+	 			   return null;
+	            }
+			};
+
+	   }
+	};
+    
     @FXML
     private void initialize() {
+    	
     	
     	// Initialize the person table with the two columns.
         firstNameColumn1.setCellValueFactory(
@@ -93,6 +124,9 @@ public class RealTimeController {
                 cellData -> cellData.getValue().numberProperty());
         
         //setMainApp();
+        
+        t.setPeriod(Duration.seconds(1));
+
         t.start();
 
         //Clear person details.
@@ -273,29 +307,21 @@ public class RealTimeController {
 	   chronoPause = false;
    }
    
-   Thread t = new Thread() {
+   
+   /*TimerTask t = new TimerTask() {
 	   public void run() {
-		   while(true) {
-			   try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			   if(chronoPause == false) {
-				   sec++;
+				   sec=sec+1;
 				   if(sec == 60) {
 					   min++;
 					   sec = 0;
 				   }
 			   }
-			   chronoMinute.setText(Long.toString(min));
-			   chronoSeconde.setText(Long.toString(sec));
+			   //chronoMinute.setText(Long.toString(min));
+			   //chronoSeconde.setText(Long.toString(sec));
 			   
 			}
-		   }
-
-   };
+   };*/
    
    
    

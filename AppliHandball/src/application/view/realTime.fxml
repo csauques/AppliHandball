@@ -68,9 +68,9 @@
                                                 <Label fx:id="nbRedLabel1" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                              </children>
                                           </GridPane>
-                                          <ImageView fitHeight="90.0" fitWidth="60.0" layoutX="14.0" layoutY="66.0" onMouseClicked="#remplacer1" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="24.0" layoutY="64.0" onMouseClicked="#remplacer1" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../../image/icons8-changement-de-joueur-100.png" />
+                                                <Image url="@../../image/bouton_changement.png" />
                                              </image>
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
@@ -94,7 +94,15 @@
                                           </ImageView>
                                           <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="174.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../../image/Carton_bleu.png" />
+                                                <Image url="@../../image/Carton_bleu.jpg" />
+                                             </image>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                          <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="224.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../image/btn_excl.png" />
                                              </image>
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
@@ -174,7 +182,7 @@
                                           </ImageView>
                                           <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="174.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../../image/Carton_bleu.png" />
+                                                <Image url="@../../image/Carton_bleu.jpg" />
                                              </image>
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />

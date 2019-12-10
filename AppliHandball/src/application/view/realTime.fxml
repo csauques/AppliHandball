@@ -84,7 +84,7 @@
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </ImageView>
-                                          <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="124.0" layoutY="64.0" onMouseClicked="#addExcl1" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="124.0" layoutY="64.0" onMouseClicked="#addRed1" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../../image/200px-Red_card.svg.png" />
                                              </image>
@@ -164,7 +164,7 @@
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </ImageView>
-                                          <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="124.0" layoutY="64.0" onMouseClicked="#addExcl2" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="124.0" layoutY="64.0" onMouseClicked="#addRed2" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../../image/200px-Red_card.svg.png" />
                                              </image>

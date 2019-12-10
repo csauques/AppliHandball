@@ -222,9 +222,9 @@ public class RealTimeController {
 		// Nothing selected.
            Alert alert = new Alert(AlertType.WARNING);
            alert.initOwner(Main.getPrimaryStage());
-           alert.setTitle("Aucune personne n'a été sélectionnée");
-           alert.setHeaderText("Aucune persone n'est sélectionnée");
-           alert.setContentText("Merci de bien vouloir sélectionner une persone.");
+           alert.setTitle("Aucune personne n'a ete selectionnee");
+           alert.setHeaderText("Aucune persone n'est selectionnee");
+           alert.setContentText("Merci de bien vouloir selectionner une persone.");
 
            alert.showAndWait();
 	   }
@@ -240,13 +240,61 @@ public class RealTimeController {
 		// Nothing selected.
            Alert alert = new Alert(AlertType.WARNING);
            alert.initOwner(Main.getPrimaryStage());
-           alert.setTitle("Aucune personne n'a été sélectionnée");
-           alert.setHeaderText("Aucune persone n'est sélectionnée");
-           alert.setContentText("Merci de bien vouloir sélectionner une persone.");
+           alert.setTitle("Aucune personne n'a ete selectionnee");
+           alert.setHeaderText("Aucune persone n'est selectionnee");
+           alert.setContentText("Merci de bien vouloir selectionner une persone.");
 
            alert.showAndWait();
 	   }
    }
+   
+public void addRed(TableView<Person> tabPers, int nb) {
+	   
+	   Person selectedPerson = tabPers.getSelectionModel().getSelectedItem();
+	   if(selectedPerson != null) {
+		   selectedPerson.addRed();
+		   showPersonDetails(selectedPerson, nb);
+	   }else {
+		// Nothing selected.
+           Alert alert = new Alert(AlertType.WARNING);
+           alert.initOwner(Main.getPrimaryStage());
+           alert.setTitle("Aucune personne n'a ete selectionnee");
+           alert.setHeaderText("Aucune persone n'est selectionnee");
+           alert.setContentText("Merci de bien vouloir selectionner une persone.");
+
+           alert.showAndWait();
+	   }
+
+   }
+
+public void addBlue(TableView<Person> tabPers, int nb) {
+	   
+	   Person selectedPerson = tabPers.getSelectionModel().getSelectedItem();
+	   if(selectedPerson != null) {
+		   selectedPerson.addBlue();
+		   showPersonDetails(selectedPerson, nb);
+	   }else {
+		// Nothing selected.
+        Alert alert = new Alert(AlertType.WARNING);
+        alert.initOwner(Main.getPrimaryStage());
+        alert.setTitle("Aucune personne n'a ete selectionnee");
+        alert.setHeaderText("Aucune persone n'est selectionnee");
+        alert.setContentText("Merci de bien vouloir selectionner une persone.");
+
+        alert.showAndWait();
+	   }
+
+}
+
+	@FXML
+	public void addRed1() {
+		addRed(personTable1, 1);
+	}
+	
+	@FXML
+	public void addRed2() {
+		addRed(personTable2, 2);
+	}
    
    @FXML 
    public void addYellow1() {
@@ -266,6 +314,16 @@ public class RealTimeController {
    @FXML
    public void addExcl2() {
 	   addExcl(personTable2, 2);
+   }
+   
+   @FXML
+   public void addBlue1() {
+	   addBlue(personTable1, 1);
+   }
+   
+   @FXML
+   public void addBlue2() {
+	   addBlue(personTable2, 2);
    }
 
 }

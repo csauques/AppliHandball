@@ -70,7 +70,6 @@ public class SwitchWindowController {
 	  
 	  @FXML
 	  private void handleOk() {
-		  System.out.println("salut t'a bien cliqué");
 		  	okClicked = true;
 		  	Person selectedPerson = tabRemp.getSelectionModel().getSelectedItem();
 		       if (selectedPerson != null) {
@@ -92,9 +91,9 @@ public class SwitchWindowController {
 		           // Nothing selected.
 		           Alert alert = new Alert(AlertType.WARNING);
 		           alert.initOwner(Main.getPrimaryStage());
-		           alert.setTitle("No Selection");
-		           alert.setHeaderText("No Person Selected");
-		           alert.setContentText("Please select a person in the table.");
+		           alert.setTitle("aucun joueur selectionne");
+		           alert.setHeaderText("personne n'est selectionne");
+		           alert.setContentText("veuillez choisir une personne.");
 
 		           alert.showAndWait();
 		       }

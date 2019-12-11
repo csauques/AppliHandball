@@ -1,24 +1,18 @@
 package application.view;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 import application.controller.Main;
 import application.model.Person;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.ScheduledService;
-import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.control.SplitPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.layout.Border;
 import javafx.util.Duration;
 
 public class RealTimeController {
@@ -123,7 +117,7 @@ public class RealTimeController {
         numberColumn2.setCellValueFactory(
                 cellData -> cellData.getValue().numberProperty());
         
-        //setMainApp();
+        setMainApp();
         
         t.setPeriod(Duration.seconds(1));
 

@@ -62,7 +62,7 @@
                   </TableView>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="8.0" GridPane.rowIndex="1">
                      <children>
-                        <ImageView fitHeight="150.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="150.0" fitWidth="55.0" onMouseClicked="#remplacer1" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../image/icons8-changement-de-joueur-100.png" />
                            </image>
@@ -70,7 +70,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addYellow1" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../image/Carton_jaune.jpg" />
                            </image>
@@ -113,7 +113,7 @@
                            </font>
                         </Label>
                         <Pane prefHeight="200.0" prefWidth="200.0" />
-                        <ImageView fitHeight="150.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="150.0" fitWidth="55.0" onMouseClicked="#remplacer2" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../image/icons8-changement-de-joueur-100.png" />
                            </image>
@@ -121,7 +121,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addYellow2" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../image/Carton_jaune.jpg" />
                            </image>

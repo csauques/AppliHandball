@@ -155,7 +155,9 @@ public void addBlue() {
 		dialogC.setContentText("souhaitez-vous reellement donner un carton rouge joindre un rappote avec pour le joueur  ".concat(this.getNumber().concat(" ?")));
 		Optional<ButtonType> answer= dialogC.showAndWait();
 		if(answer.get() == ButtonType.OK){
-			_nbRed ++;
+			if(_nbRed == 0) {
+				_nbRed++;
+			}
 			rapport = true;
 			isAvaliable = false;
 			//TODO g�rer les timers et autre 

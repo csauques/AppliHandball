@@ -65,9 +65,9 @@
                   </TableView>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="8.0" GridPane.rowIndex="1">
                      <children>
-                        <ImageView fitHeight="150.0" fitWidth="55.0" onMouseClicked="#remplacer1" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#remplacer1" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../image/icons8-changement-de-joueur-100.png" />
+                              <Image url="@../../image/bouton_changement.png" />
                            </image>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -81,7 +81,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addRed1" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../image/200px-Red_card.svg.jpg" />
                            </image>
@@ -89,7 +89,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addBlue1" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../image/Carton_bleu.jpg" />
                            </image>
@@ -97,12 +97,15 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addExcl1" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/btn_excl.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
                         <Pane prefHeight="200.0" prefWidth="200.0" />
-                        <Label text="0">
-                           <font>
-                              <Font size="36.0" />
-                           </font>
-                        </Label>
                      </children>
                      <padding>
                         <Insets right="8.0" />
@@ -110,15 +113,10 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="312.0" prefHeight="100.0" prefWidth="200.0" spacing="8.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <children>
-                        <Label text="0">
-                           <font>
-                              <Font size="36.0" />
-                           </font>
-                        </Label>
                         <Pane prefHeight="200.0" prefWidth="200.0" />
-                        <ImageView fitHeight="150.0" fitWidth="55.0" onMouseClicked="#remplacer2" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#remplacer2" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../image/icons8-changement-de-joueur-100.png" />
+                              <Image url="@../../image/bouton_changement.png" />
                            </image>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -132,7 +130,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addYellow2" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../image/200px-Red_card.svg.png" />
                            </image>
@@ -140,9 +138,17 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addBlue2" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../image/Carton_bleu.jpg" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="464.0" layoutY="27.0" onMouseClicked="#addExcl2" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/btn_excl.png" />
                            </image>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -155,24 +161,98 @@
                   </HBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.columnIndex="1">
                      <children>
-                        <ImageView fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="yellow1" fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" visible="false">
                            <image>
                               <Image url="@../../image/Carton_jaune.jpg" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="red1" fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" visible="false">
                            <image>
                               <Image url="@../../image/200px-Red_card.svg.jpg" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="blue1" fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" visible="false">
                            <image>
                               <Image url="@../../image/Carton_bleu.jpg" />
                            </image>
                         </ImageView>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="2.0">
+                           <children>
+                              <ImageView fx:id="excl11" fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@../../image/btn_excl.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="excl21" fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@../../image/btn_excl.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="excl31" fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@../../image/btn_excl.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" />
+                  <VBox alignment="CENTER" layoutX="522.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.columnIndex="2">
+                     <children>
+                        <ImageView fx:id="yellow2" fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@../../image/Carton_jaune.jpg" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="red2" fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@../../image/200px-Red_card.svg.jpg" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="blue2" fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@../../image/Carton_bleu.jpg" />
+                           </image>
+                        </ImageView>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="2.0">
+                           <children>
+                              <ImageView fx:id="excl12" fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@../../image/btn_excl.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="excl22" fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@../../image/btn_excl.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="excl32" fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@../../image/btn_excl.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Label text="0">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <children>
+                        <Label text="0">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
                </children>
             </GridPane>
             <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">

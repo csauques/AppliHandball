@@ -16,6 +16,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.util.Duration;
 
@@ -47,24 +48,31 @@ public class RealTimeController {
     private TableColumn<Person, Image> imageColumn;
 
     @FXML
-    private Label numberLabel2;
+    private ImageView red1;
     @FXML
-    private Label nbExclLabel2;
+    private ImageView blue1;
     @FXML
-    private Label nbRedLabel2;
+    private ImageView yellow1;
     @FXML
-    private Label nbYellowLabel2;
+    private ImageView excl11;
+    @FXML
+    private ImageView excl21;
+    @FXML
+    private ImageView excl31;
     
-
-    @FXML
-    private Label numberLabel1;
-    @FXML
-    private Label nbExclLabel1;
-    @FXML
-    private Label nbRedLabel1;
-    @FXML
-    private Label nbYellowLabel1;
     
+    @FXML
+    private ImageView red2;
+    @FXML
+    private ImageView blue2;
+    @FXML
+    private ImageView yellow2;
+    @FXML
+    private ImageView excl12;
+    @FXML
+    private ImageView excl22;
+    @FXML
+    private ImageView excl32;
     @FXML
     private Label chronoMinute;
     
@@ -147,11 +155,11 @@ public class RealTimeController {
         //showPersonDetails(null, 0);
 
         //Listen for selection changes and show the person details when changed.
-        /*personTable1.getSelectionModel().selectedItemProperty().addListener(
+        personTable1.getSelectionModel().selectedItemProperty().addListener(
               (observable, oldValue, newValue) -> showPersonDetails(newValue, 1));
         
         personTable2.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue) -> showPersonDetails(newValue, 2));*/
+                (observable, oldValue, newValue) -> showPersonDetails(newValue, 2));
     }
     
     public void setMainApp() {
@@ -200,28 +208,100 @@ public class RealTimeController {
     
    private void showPersonDetails(Person person, int nb) {
         if (person != null) {
-            if(nb == 1) {
-            	numberLabel1.setText(person.getNumber());
-            	nbExclLabel1.setText(Integer.toString(person.getNbExcl()));
-            	nbRedLabel1.setText(Integer.toString(person.getRed()));
-            	nbYellowLabel1.setText(Integer.toString(person.getYellow()));
-            }else {
-            	numberLabel2.setText(person.getNumber());
-            	nbExclLabel2.setText(Integer.toString(person.getNbExcl()));
-            	nbRedLabel2.setText(Integer.toString(person.getRed()));
-            	nbYellowLabel2.setText(Integer.toString(person.getYellow()));
-            }
+        	if(nb == 1) {
+        		   if(person.getYellow() == 1) {
+   	            	yellow1.setVisible(true);
+   	            }else {
+   	            	yellow1.setVisible(false);
+   	            }
+   	            if(person.getRed() == 1) {
+   	            	red1.setVisible(true);
+   	            }else {
+   	            	red1.setVisible(false);
+   	            }
+   	            if(person.hasReport()) {
+   	            	blue1.setVisible(true);
+   	            }else {
+   	            	blue1.setVisible(false);
+   	            }
+        		
+   	            switch(person.getNbExcl()) {
+	   	            case 0:
+	   	            	excl11.setVisible(false);
+	   	            	excl21.setVisible(false);
+	   	            	excl31.setVisible(false);
+	   	            break;
+	   	            case 1:
+	   	            	excl11.setVisible(true);
+	   	            	excl21.setVisible(false);
+	   	            	excl31.setVisible(false);
+	   	            break;
+	   	            case 2:
+	   	            	excl11.setVisible(true);
+	   	            	excl21.setVisible(true);
+	   	            	excl31.setVisible(false);
+	   	            break;
+	   	            case 3:
+	   	            	excl11.setVisible(true);
+	   	            	excl21.setVisible(true);
+	   	            	excl31.setVisible(true);
+	   	            break;
+   	            }
+        	}else {
+        		if(person.getYellow() == 1) {
+   	            	yellow2.setVisible(true);
+   	            }else {
+   	            	yellow2.setVisible(false);
+   	            }
+   	            if(person.getRed() == 1) {
+   	            	red2.setVisible(true);
+   	            }else {
+   	            	red2.setVisible(false);
+   	            }
+   	            if(person.hasReport()) {
+   	            	blue2.setVisible(true);
+   	            }else {
+   	            	blue2.setVisible(false);
+   	            }
+        		
+   	            switch(person.getNbExcl()) {
+	   	            case 0:
+	   	            	excl12.setVisible(false);
+	   	            	excl22.setVisible(false);
+	   	            	excl32.setVisible(false);
+	   	            break;
+	   	            case 1:
+	   	            	excl12.setVisible(true);
+	   	            	excl22.setVisible(false);
+	   	            	excl32.setVisible(false);
+	   	            break;
+	   	            case 2:
+	   	            	excl12.setVisible(true);
+	   	            	excl22.setVisible(true);
+	   	            	excl32.setVisible(false);
+	   	            break;
+	   	            case 3:
+	   	            	excl12.setVisible(true);
+	   	            	excl22.setVisible(true);
+	   	            	excl32.setVisible(true);
+	   	            break;
+   	            }
+        	}
+	         
 
         } else {
-            
-           numberLabel1.setText("");
-           numberLabel2.setText("");
-           nbExclLabel2.setText("");
-           nbExclLabel1.setText("");
-           nbRedLabel2.setText("");
-           nbRedLabel1.setText("");
-           nbYellowLabel2.setText("");
-           nbYellowLabel1.setText("");
+            yellow1.setVisible(false);
+            blue1.setVisible(false);
+            red1.setVisible(false);
+            excl11.setVisible(false);
+            excl21.setVisible(false);
+            excl31.setVisible(false);
+            yellow2.setVisible(false);
+            blue2.setVisible(false);
+            red2.setVisible(false);
+            excl12.setVisible(false);
+            excl22.setVisible(false);
+            excl32.setVisible(false);
         }
     }
    
@@ -279,7 +359,7 @@ public class RealTimeController {
 	   Person selectedPerson = tabPers.getSelectionModel().getSelectedItem();
 	   if(selectedPerson != null) {
 		   selectedPerson.addYellow();
-		   //showPersonDetails(selectedPerson, nb);
+		   showPersonDetails(selectedPerson, nb);
 	   }else {
 		// Nothing selected.
            Alert alert = new Alert(AlertType.WARNING);

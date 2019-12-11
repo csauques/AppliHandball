@@ -364,19 +364,23 @@
                   </GridPane>
                </top>
                <center>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <Pane fx:id="pan" BorderPane.alignment="CENTER">
                      <children>
-                        <ImageView fitHeight="300.0" fitWidth="500.0" layoutX="390.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../image/terrain.jpg" />
-                           </image>
-                        </ImageView>
-                        <Circle fill="DODGERBLUE" layoutX="640.0" layoutY="187.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="ter" fitHeight="300.0" fitWidth="500.0" layoutX="390.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../image/terrain.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
                      </children>
-                  </AnchorPane>
+                  </Pane>
                </center>
             </BorderPane>
          </children>
       </GridPane>
+      <Circle fx:id="cir" fill="DODGERBLUE" layoutX="625.0" layoutY="625.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
    </children>
 </AnchorPane>

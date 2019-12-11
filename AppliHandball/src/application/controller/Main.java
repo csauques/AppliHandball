@@ -95,6 +95,10 @@ public class Main extends Application {
 	public static Stage getPrimaryStage() {
         return primaryStage;
     }
+	
+	public static Scene getScene() {
+        return scene;
+    }
 
 	public static void main(String[] args) {
 		launch(args);
@@ -106,8 +110,8 @@ public class Main extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource(scenePath));
             AnchorPane menu = (AnchorPane) loader.load();
-            rootLayout.setPrefHeight(lar);
-            rootLayout.setPrefWidth(lon);
+            primaryStage.setMaxHeight(800);
+            primaryStage.setMaxWidth(1280);
             primaryStage.setMaximized(true);
             primaryStage.setScene(scene);
             rootLayout.setCenter(menu);

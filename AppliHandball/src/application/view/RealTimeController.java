@@ -2,6 +2,9 @@ package application.view;
 
 
 
+import java.awt.MouseInfo;
+import java.awt.Point;
+
 import application.controller.Main;
 import application.model.Person;
 import javafx.application.Platform;
@@ -17,6 +20,14 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.DataFormat;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.TransferMode;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Circle;
 import javafx.scene.control.Alert.AlertType;
 import javafx.util.Duration;
 
@@ -79,6 +90,13 @@ public class RealTimeController {
     @FXML
     private Label chronoSeconde;
     
+    @FXML
+    private Circle cir; 
+
+    
+    @FXML
+    private ImageView ter;
+    
     
     long min, sec = 0;
     
@@ -125,6 +143,71 @@ public class RealTimeController {
     @FXML
     private void initialize() {
     	
+    	cir.setOnDragDetected(mouseEvent -> {
+    		final Dragboard dragBroard = cir.startDragAndDrop(TransferMode.ANY);
+    		final ClipboardContent content = new ClipboardContent();
+    		final WritableImage capture = cir.snapshot(null, null);
+    		content.putImage(capture);
+            dragBroard.setContent(content); 
+            mouseEvent.consume();
+    		
+    		
+    	});
+    	
+    	ter.setOnDragOver(dragEvent -> { 
+    	    final Dragboard dragBroard = dragEvent.getDragboard(); 
+    	   
+    	    if (dragEvent.getGestureSource() != ter) { 
+    	        // Indique les modes de transfert autorisés sur cette destination. 
+    	        dragEvent.acceptTransferModes(TransferMode.ANY); 
+    	    } 
+    	    dragEvent.consume(); 
+    	});
+    	
+    	ter.setOnDragDropped(dragEvent -> { 
+    	    boolean success = false; 
+    	    try { 
+    	        final Dragboard dragBroard = dragEvent.getDragboard(); 
+    	        
+    	        
+    	        success = true; 
+    	    } catch (Exception ex) { 
+    	       
+    	    } finally { 
+    	        dragEvent.setDropCompleted(success); 
+    	        dragEvent.consume(); 
+    	    } 
+    	});
+    	
+    	cir.setOnDragDone(dragEvent -> { 
+    	    final Dragboard dragBroard = dragEvent.getDragboard(); 
+    	   
+    	    if (dragEvent.getTransferMode() == TransferMode.MOVE) { 
+    	        // Faire ce qui est nécessaire pour retirer la source ou la donnée.
+    	    	Point pointerLocation = MouseInfo.getPointerInfo().getLocation(); 
+
+    	        int sceneX = pointerLocation.x;
+    	        sceneX -= Main.getScene().getWindow().getX();
+    	        sceneX -= Main.getScene().getX();
+    	        
+
+    	        int sceneY = pointerLocation.y; 
+    	        sceneY -= Main.getScene().getWindow().getY();
+    	        sceneY -= Main.getScene().getY();
+    	        sceneY -= 24;
+    	        
+    	        System.out.println(sceneX);
+    	        System.out.println(sceneY);
+    	        
+    	        cir.setLayoutX(sceneX);
+    	        cir.setLayoutY(sceneY);
+    	        
+    	    } 
+    	    dragEvent.consume(); 
+    	});
+    	
+    	
+    	
     	
     	// Initialize the person table with the two columns.
         firstNameColumn1.setCellValueFactory(
@@ -141,8 +224,8 @@ public class RealTimeController {
         numberColumn2.setCellValueFactory(
                 cellData -> cellData.getValue().numberProperty());
         
-        imageColumn.setCellValueFactory(
-        		new PropertyValueFactory<Person, Image>("../image/Carton_jaune.jpg"));
+        /*imageColumn.setCellValueFactory(
+        		new PropertyValueFactory<Person, Image>("../image/Carton_jaune.jpg"));*/
  
         
         setMainApp();

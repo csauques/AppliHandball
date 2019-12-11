@@ -1,5 +1,6 @@
 package application.model;
 
+import java.util.List;
 import java.util.Optional;
 
 import application.controller.Main;
@@ -7,15 +8,18 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
 
 public class Person {
 	
 	private StringProperty _firstName;
 	private StringProperty _lastName;
 	private StringProperty _number;
+	private Image _img;
 	private int _nbExcl;
 	private int _nbYellow;
 	private int _nbRed;
@@ -33,6 +37,7 @@ public class Person {
 		this._nbRed = 0;
 		this._nbYellow= 0;
 		this.isPlaying = isP;
+		//this._img = new Image("Carton_jaune.png");
 	}
 	
 	//getters
@@ -58,6 +63,10 @@ public class Person {
 	
 	public int getRed() {
 		return _nbRed;
+	}
+	
+	public Image getImg(){
+		return _img;
 	}
 	
 	public boolean isAvaliable() {

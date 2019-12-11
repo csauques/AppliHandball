@@ -1,5 +1,7 @@
 package application.view;
 
+
+
 import application.controller.Main;
 import application.model.Person;
 import javafx.application.Platform;
@@ -12,6 +14,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.control.Alert.AlertType;
 import javafx.util.Duration;
 
@@ -39,6 +43,8 @@ public class RealTimeController {
     private TableColumn<Person, String> lastNameColumn2;
     @FXML
     private TableColumn<Person, String> numberColumn2;
+    @FXML
+    private TableColumn<Person, Image> imageColumn;
 
     @FXML
     private Label numberLabel2;
@@ -87,8 +93,18 @@ public class RealTimeController {
 	 			   }
 	            	Platform.runLater(new Runnable() {
 	            		public void run () {
-	            			chronoMinute.setText(Long.toString(min));
-	     	 			   chronoSeconde.setText(Long.toString(sec));
+	            			if(min < 10) {
+	            				chronoMinute.setText("0".concat(Long.toString(min)));
+	            			}else {
+	            				chronoMinute.setText(Long.toString(min));
+	            			}
+	            			
+	            			if(sec < 10) {
+	            				 chronoSeconde.setText("0".concat(Long.toString(sec)));
+	            			}else {
+	 	     	 			   chronoSeconde.setText(Long.toString(sec));
+	            			}
+
 	            		}
 	            	});
 	 			   return null;
@@ -117,6 +133,10 @@ public class RealTimeController {
         numberColumn2.setCellValueFactory(
                 cellData -> cellData.getValue().numberProperty());
         
+        imageColumn.setCellValueFactory(
+        		new PropertyValueFactory<Person, Image>("../image/Carton_jaune.jpg"));
+ 
+        
         setMainApp();
         
         t.setPeriod(Duration.seconds(1));
@@ -127,11 +147,11 @@ public class RealTimeController {
         //showPersonDetails(null, 0);
 
         //Listen for selection changes and show the person details when changed.
-        personTable1.getSelectionModel().selectedItemProperty().addListener(
+        /*personTable1.getSelectionModel().selectedItemProperty().addListener(
               (observable, oldValue, newValue) -> showPersonDetails(newValue, 1));
         
         personTable2.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue) -> showPersonDetails(newValue, 2));
+                (observable, oldValue, newValue) -> showPersonDetails(newValue, 2));*/
     }
     
     public void setMainApp() {
@@ -259,7 +279,7 @@ public class RealTimeController {
 	   Person selectedPerson = tabPers.getSelectionModel().getSelectedItem();
 	   if(selectedPerson != null) {
 		   selectedPerson.addYellow();
-		   showPersonDetails(selectedPerson, nb);
+		   //showPersonDetails(selectedPerson, nb);
 	   }else {
 		// Nothing selected.
            Alert alert = new Alert(AlertType.WARNING);
@@ -317,7 +337,8 @@ public class RealTimeController {
 			}
    };*/
    
-   
+   // je sais pas
+   //moi non plus
    
    
    

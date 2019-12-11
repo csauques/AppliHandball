@@ -92,7 +92,7 @@
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </ImageView>
-                                          <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="174.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+                               <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="174.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../../image/Carton_bleu.jpg" />
                                              </image>
@@ -108,6 +108,7 @@
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </ImageView>
+
                                        </children></AnchorPane>
                                 </items>
                               </SplitPane>
@@ -188,6 +189,7 @@
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </ImageView>
+
                                        </children></AnchorPane>
                                 </items>
                               </SplitPane>

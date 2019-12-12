@@ -461,7 +461,7 @@ public void addBlue(TableView<Person> tabPers, int nb) {
 
 public void addShoot(TableView<Person> tabPers, int nb) {
 	Person selectedPerson = tabPers.getSelectionModel().getSelectedItem();
-	   if(selectedPerson != null) {
+	   if(selectedPerson != null && selectedPerson.getNumber() != "Ent") {
 		   cir_ter.setVisible(true);
 		   cir_ter.setDisable(false);
 		   cir_ter.setLayoutX(625);

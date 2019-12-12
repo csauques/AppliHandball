@@ -169,6 +169,20 @@ public class RealTimeController {
     	    boolean success = false; 
     	    try { 
     	        final Dragboard dragBroard = dragEvent.getDragboard(); 
+    	        Point pointerLocation = MouseInfo.getPointerInfo().getLocation(); 
+
+    	        int sceneX = pointerLocation.x;
+    	        sceneX -= Main.getScene().getWindow().getX();
+    	        sceneX -= Main.getScene().getX();
+    	        
+
+    	        int sceneY = pointerLocation.y; 
+    	        sceneY -= Main.getScene().getWindow().getY();
+    	        sceneY -= Main.getScene().getY();
+    	        sceneY -= 26;
+    	        
+    	        cir.setLayoutX(sceneX);
+    	        cir.setLayoutY(sceneY);
     	        
     	        
     	        success = true; 
@@ -185,23 +199,7 @@ public class RealTimeController {
     	   
     	    if (dragEvent.getTransferMode() == TransferMode.MOVE) { 
     	        // Faire ce qui est n�cessaire pour retirer la source ou la donn�e.
-    	    	Point pointerLocation = MouseInfo.getPointerInfo().getLocation(); 
-
-    	        int sceneX = pointerLocation.x;
-    	        sceneX -= Main.getScene().getWindow().getX();
-    	        sceneX -= Main.getScene().getX();
-    	        
-
-    	        int sceneY = pointerLocation.y; 
-    	        sceneY -= Main.getScene().getWindow().getY();
-    	        sceneY -= Main.getScene().getY();
-    	        sceneY -= 24;
-    	        
-    	        System.out.println(sceneX);
-    	        System.out.println(sceneY);
-    	        
-    	        cir.setLayoutX(sceneX);
-    	        cir.setLayoutY(sceneY);
+    	    	
     	        
     	    } 
     	    dragEvent.consume(); 

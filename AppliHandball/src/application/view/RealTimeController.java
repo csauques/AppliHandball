@@ -101,6 +101,7 @@ public class RealTimeController {
     long min, sec = 0;
     
     boolean chronoPause = true;
+    boolean chronoIsRunning = false;
     
     
     public RealTimeController() {
@@ -158,7 +159,7 @@ public class RealTimeController {
     	    final Dragboard dragBroard = dragEvent.getDragboard(); 
     	   
     	    if (dragEvent.getGestureSource() != ter) { 
-    	        // Indique les modes de transfert autorisés sur cette destination. 
+    	        // Indique les modes de transfert autorisï¿½s sur cette destination. 
     	        dragEvent.acceptTransferModes(TransferMode.ANY); 
     	    } 
     	    dragEvent.consume(); 
@@ -183,7 +184,7 @@ public class RealTimeController {
     	    final Dragboard dragBroard = dragEvent.getDragboard(); 
     	   
     	    if (dragEvent.getTransferMode() == TransferMode.MOVE) { 
-    	        // Faire ce qui est nécessaire pour retirer la source ou la donnée.
+    	        // Faire ce qui est nï¿½cessaire pour retirer la source ou la donnï¿½e.
     	    	Point pointerLocation = MouseInfo.getPointerInfo().getLocation(); 
 
     	        int sceneX = pointerLocation.x;
@@ -534,10 +535,15 @@ public void addBlue(TableView<Person> tabPers, int nb) {
 
    @FXML 
    public void demarrerChrono() {
-	   min = 0;
-	   sec = 0;
-	   chronoPause = false;
-	   
+	 
+	  if(!chronoIsRunning) {
+		  min = 0;
+		  sec = 0;
+		  chronoPause = false;
+		  chronoIsRunning = true;
+		   
+	  }
+	 
    }
    
    @FXML 

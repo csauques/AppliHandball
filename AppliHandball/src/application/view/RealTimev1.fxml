@@ -107,9 +107,9 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="60.0" onMouseClicked="#addShoot1" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addShoot1" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../image/ballondehandball.jpg" />
+                              <Image url="@../../image/ballondehandball.png" />
                            </image>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -186,9 +186,9 @@
                            </children>
                         </VBox>
                         <Pane prefHeight="200.0" prefWidth="50.0" />
-                        <ImageView fitHeight="150.0" fitWidth="60.0" onMouseClicked="#addShoot2" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addShoot2" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../image/ballondehandball.jpg" />
+                              <Image url="@../../image/ballondehandball.png" />
                            </image>
                            <cursor>
                               <Cursor fx:constant="HAND" />

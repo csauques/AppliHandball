@@ -43,7 +43,7 @@
                 <RowConstraints maxHeight="190.0" minHeight="10.0" prefHeight="98.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TableView fx:id="personTable1" prefHeight="200.0" prefWidth="200.0">
+                  <TableView fx:id="personTable1" fixedCellSize="34.0" prefHeight="200.0" prefWidth="200.0">
                     <columns>
                       <TableColumn fx:id="numberColumn1" prefWidth="75.0" text="N°" />
                       <TableColumn fx:id="lastNameColumn1" prefWidth="75.0" text="Nom" />
@@ -54,7 +54,7 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <TableView fx:id="personTable2" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
+                  <TableView fx:id="personTable2" fixedCellSize="34.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
                     <columns>
                       <TableColumn fx:id="numberColumn2" prefWidth="75.0" text="N°" />
                       <TableColumn fx:id="lastNameColumn2" prefWidth="75.0" text="Nom" />
@@ -369,8 +369,20 @@
                                  </font>
                               </Label>
                               <Button mnemonicParsing="false" onAction="#demarrerChrono" text="Commencer" />
-                              <Button mnemonicParsing="false" onAction="#repprendreChrono" text="Reprendre" />
-                              <Button mnemonicParsing="false" onAction="#pauseChrono" text="Pause" />
+                              <ImageView fx:id="btnPlayPause" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#toggleChrono" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../image/btn_pause.png" />
+                                 </image>
+                              </ImageView>
+                              <Pane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <ImageView fx:id="btnPlay" fitHeight="50.0" fitWidth="50.0" layoutX="2.0" onMouseClicked="#toggleChrono" pickOnBounds="true" preserveRatio="true" visible="false">
+                                       <image>
+                                          <Image url="@../../image/btn_play.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
                            </children>
                         </HBox>
                      </children>

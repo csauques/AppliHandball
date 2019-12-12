@@ -26,15 +26,18 @@ public class Main extends Application {
     
     public Main() {
         // Add some sample data
+    	personEquip1.add(new Person("Deschamps", "Didier", "Ent", true));
     	personEquip1.add(new Person("Hans", "Muster", "1", true));
     	personEquip1.add(new Person("Alain", "Terieur", "2", true));
     	personEquip1.add(new Person("Alex", "Terieur", "3", true));
     	personEquip1.add(new Person("Alain", "Proviste", "4", true));
     	personEquip1.add(new Person("Jean", "Darmerie", "5", true));
-    	personEquip1.add(new Person("Hans", "Inusite", "6", false));
-    	personEquip1.add(new Person("Marc", "Assin", "7", false));
+    	personEquip1.add(new Person("Hans", "Inusite", "6", true));
+    	personEquip1.add(new Person("Marc", "Assin", "7", true));
     	personEquip1.add(new Person("Ric", "Ola", "8", false));
+    	personEquip1.add(new Person("PAVAAAAAARD", "PAVAAAAAAAAAAAAAAAAARD", "9", false));
     	
+    	personEquip2.add(new Person("Dinart", "Didier", "Ent", true));
     	personEquip2.add(new Person("Emile", "Piedeudan", "1", true));
     	personEquip2.add(new Person("Guy", "Tarrebasse", "2", true));
     	personEquip2.add(new Person("Djamel", "Audos", "3", true));

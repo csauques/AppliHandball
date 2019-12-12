@@ -106,8 +106,9 @@ public class RealTimeController {
     private HBox cage1;
     @FXML
     private HBox cage2;
-    
-    
+    @FXML
+    private ImageView btnPlayPause;
+ 
     long min, sec = 0;
     
     boolean chronoPause = true;
@@ -153,20 +154,7 @@ public class RealTimeController {
     
     @FXML
     private void initialize() {
-    	
-    	
-    	/*
-    	cir_ter.setOnDragDone(dragEvent -> { 
-    	    final Dragboard dragBroard = dragEvent.getDragboard(); 
-    	   
-    	    if (dragEvent.getTransferMode() == TransferMode.MOVE) { 
-    	        addBut(1);
-    	    	
-    	        
-    	    } 
-    	    dragEvent.consume(); 
-    	});*/
-    	
+    
     	
     	
     	
@@ -429,7 +417,6 @@ public class RealTimeController {
            alert.setTitle("Aucune personne n'a ete selectionnee");
            alert.setHeaderText("Aucune persone n'est selectionnee");
            alert.setContentText("Merci de bien vouloir selectionner une persone.");
-
            alert.showAndWait();
 	   }
    }
@@ -635,7 +622,6 @@ public void addBut(int nb) {
 	    	    cir_ter.setVisible(false);
 	    	    cir_cage1.setVisible(false);
 	    	    
-	    	    
 	    	  
 	    	    dragEvent.consume(); 
 	    	});
@@ -722,15 +708,15 @@ public void addBut(int nb) {
 	}
 }
 
-@FXML
-public void addShoot1() {
-	addShoot(personTable1, 1);
-}
-
-@FXML
-public void addShoot2() {
-	addShoot(personTable2, 2);
-}
+	@FXML
+	public void addShoot1() {
+		addShoot(personTable1, 1);
+	}
+	
+	@FXML
+	public void addShoot2() {
+		addShoot(personTable2, 2);
+	}
 
 	@FXML
 	public void addRed1() {
@@ -765,17 +751,16 @@ public void addShoot2() {
 	  }
 	 
    }
-   
+  
    @FXML 
-   public void pauseChrono() {
-	   chronoPause = true; 
+   public void toggleChrono() {
+	   chronoPause = ! chronoPause;
+	   if(chronoPause) {
+		   btnPlayPause.setImage(new Image("@../../image/btn_play.png"));
+	   }else {
+		   btnPlayPause.setImage(new Image("@../../image/btn_pause.png"));
+	   }
    }
-   
-   @FXML 
-   public void repprendreChrono() {
-	   chronoPause = false;
-   }
-   
    
    
    

@@ -107,7 +107,15 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <Pane prefHeight="200.0" prefWidth="100.0" />
+                        <ImageView fitHeight="150.0" fitWidth="60.0" onMouseClicked="#addShoot1" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/ballondehandball.jpg" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <Pane prefHeight="200.0" prefWidth="50.0" />
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                            <children>
                               <HBox alignment="CENTER" prefHeight="40.0" prefWidth="100.0">
@@ -177,26 +185,18 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <Pane prefHeight="200.0" prefWidth="100.0" />
-                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#remplacer2" pickOnBounds="true" preserveRatio="true">
+                        <Pane prefHeight="200.0" prefWidth="50.0" />
+                        <ImageView fitHeight="150.0" fitWidth="60.0" onMouseClicked="#addShoot2" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../image/bouton_changement.png" />
+                              <Image url="@../../image/ballondehandball.jpg" />
                            </image>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addYellow2" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addExcl2" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../image/Carton_jaune.jpg" />
-                           </image>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addYellow2" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../image/200px-Red_card.svg.png" />
+                              <Image url="@../../image/btn_excl.png" />
                            </image>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -210,9 +210,25 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="464.0" layoutY="27.0" onMouseClicked="#addExcl2" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addYellow2" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../image/btn_excl.png" />
+                              <Image url="@../../image/200px-Red_card.svg.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addYellow2" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/Carton_jaune.jpg" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#remplacer2" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/bouton_changement.png" />
                            </image>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -364,23 +380,52 @@
                   </GridPane>
                </top>
                <center>
-                  <Pane fx:id="pan" BorderPane.alignment="CENTER">
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                           <children>
-                              <ImageView fx:id="ter" fitHeight="300.0" fitWidth="500.0" layoutX="390.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../image/terrain.jpg" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </AnchorPane>
+                        <ImageView fx:id="ter" fitHeight="300.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/terrain.jpg" />
+                           </image>
+                        </ImageView>
                      </children>
-                  </Pane>
+                  </HBox>
                </center>
+               <right>
+                  <HBox fx:id="cage2" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <ImageView fitHeight="300.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/Cage.jpg" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <padding>
+                        <Insets right="5.0" />
+                     </padding>
+                  </HBox>
+               </right>
+               <left>
+                  <HBox fx:id="cage1" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <ImageView fitHeight="300.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/Cage.jpg" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </HBox>
+               </left>
             </BorderPane>
          </children>
       </GridPane>
-      <Circle fx:id="cir" fill="DODGERBLUE" layoutX="625.0" layoutY="625.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="cir_ter" fill="DODGERBLUE" layoutX="638.0" layoutY="625.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" visible="false">
+         <cursor>
+            <Cursor fx:constant="CLOSED_HAND" />
+         </cursor></Circle>
+      <Circle fx:id="cir_cage1" fill="DODGERBLUE" layoutX="180.0" layoutY="625.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+      <Circle fx:id="cir_cage2" fill="DODGERBLUE" layoutX="1105.0" layoutY="625.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
    </children>
 </AnchorPane>

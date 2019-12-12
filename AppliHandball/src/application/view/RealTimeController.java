@@ -4,6 +4,7 @@ package application.view;
 
 import java.awt.MouseInfo;
 import java.awt.Point;
+import java.util.Optional;
 
 import application.controller.Main;
 import application.model.Person;
@@ -25,10 +26,12 @@ import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.DataFormat;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.util.Duration;
 
 public class RealTimeController {
@@ -91,11 +94,18 @@ public class RealTimeController {
     private Label chronoSeconde;
     
     @FXML
-    private Circle cir; 
-
+    private Circle cir_ter; 
+    @FXML
+    private Circle cir_cage1; 
+    @FXML
+    private Circle cir_cage2; 
     
     @FXML
     private ImageView ter;
+    @FXML
+    private HBox cage1;
+    @FXML
+    private HBox cage2;
     
     
     long min, sec = 0;
@@ -144,66 +154,18 @@ public class RealTimeController {
     @FXML
     private void initialize() {
     	
-    	cir.setOnDragDetected(mouseEvent -> {
-    		final Dragboard dragBroard = cir.startDragAndDrop(TransferMode.ANY);
-    		final ClipboardContent content = new ClipboardContent();
-    		final WritableImage capture = cir.snapshot(null, null);
-    		content.putImage(capture);
-            dragBroard.setContent(content); 
-            mouseEvent.consume();
-    		
-    		
-    	});
     	
-    	ter.setOnDragOver(dragEvent -> { 
-    	    final Dragboard dragBroard = dragEvent.getDragboard(); 
-    	   
-    	    if (dragEvent.getGestureSource() != ter) { 
-    	        // Indique les modes de transfert autoris�s sur cette destination. 
-    	        dragEvent.acceptTransferModes(TransferMode.ANY); 
-    	    } 
-    	    dragEvent.consume(); 
-    	});
-    	
-    	ter.setOnDragDropped(dragEvent -> { 
-    	    boolean success = false; 
-    	    try { 
-    	        final Dragboard dragBroard = dragEvent.getDragboard(); 
-    	        Point pointerLocation = MouseInfo.getPointerInfo().getLocation(); 
-
-    	        int sceneX = pointerLocation.x;
-    	        sceneX -= Main.getScene().getWindow().getX();
-    	        sceneX -= Main.getScene().getX();
-    	        
-
-    	        int sceneY = pointerLocation.y; 
-    	        sceneY -= Main.getScene().getWindow().getY();
-    	        sceneY -= Main.getScene().getY();
-    	        sceneY -= 26;
-    	        
-    	        cir.setLayoutX(sceneX);
-    	        cir.setLayoutY(sceneY);
-    	        
-    	        
-    	        success = true; 
-    	    } catch (Exception ex) { 
-    	       
-    	    } finally { 
-    	        dragEvent.setDropCompleted(success); 
-    	        dragEvent.consume(); 
-    	    } 
-    	});
-    	
-    	cir.setOnDragDone(dragEvent -> { 
+    	/*
+    	cir_ter.setOnDragDone(dragEvent -> { 
     	    final Dragboard dragBroard = dragEvent.getDragboard(); 
     	   
     	    if (dragEvent.getTransferMode() == TransferMode.MOVE) { 
-    	        // Faire ce qui est n�cessaire pour retirer la source ou la donn�e.
+    	        addBut(1);
     	    	
     	        
     	    } 
     	    dragEvent.consume(); 
-    	});
+    	});*/
     	
     	
     	
@@ -510,6 +472,266 @@ public void addBlue(TableView<Person> tabPers, int nb) {
 
 }
 
+public void addShoot(TableView<Person> tabPers, int nb) {
+	Person selectedPerson = tabPers.getSelectionModel().getSelectedItem();
+	   if(selectedPerson != null) {
+		   cir_ter.setVisible(true);
+		   cir_ter.setDisable(false);
+		   cir_ter.setLayoutX(625);
+		   cir_ter.setLayoutY(625);
+		   
+		   cir_ter.setOnDragDetected(mouseEvent -> {
+	    		final Dragboard dragBroard = cir_ter.startDragAndDrop(TransferMode.ANY);
+	    		final ClipboardContent content = new ClipboardContent();
+	    		final WritableImage capture = cir_ter.snapshot(null, null);
+	    		content.putImage(capture);
+	            dragBroard.setContent(content); 
+	            mouseEvent.consume();
+	    		
+	    		
+	    	});
+	    	
+	    	ter.setOnDragOver(dragEvent -> { 
+	    	    final Dragboard dragBroard = dragEvent.getDragboard(); 
+	    	   
+	    	    if (dragEvent.getGestureSource() != ter) { 
+	    	        // Indique les modes de transfert autoris�s sur cette destination. 
+	    	        dragEvent.acceptTransferModes(TransferMode.ANY); 
+	    	    } 
+	    	    dragEvent.consume(); 
+	    	});
+	    	
+	    	ter.setOnDragDropped(dragEvent -> { 
+	    	    boolean success = false; 
+	    	    try { 
+	    	        final Dragboard dragBroard = dragEvent.getDragboard(); 
+	    	        Point pointerLocation = MouseInfo.getPointerInfo().getLocation(); 
+
+	    	        int sceneX = pointerLocation.x;
+	    	        sceneX -= Main.getScene().getWindow().getX();
+	    	        sceneX -= Main.getScene().getX();
+	    	        
+
+	    	        int sceneY = pointerLocation.y; 
+	    	        sceneY -= Main.getScene().getWindow().getY();
+	    	        sceneY -= Main.getScene().getY();
+	    	        sceneY -= 26;
+	    	        
+	    	        cir_ter.setLayoutX(sceneX);
+	    	        cir_ter.setLayoutY(sceneY);
+	    	        
+	    	        
+	    	        success = true; 
+	    	    } catch (Exception ex) { 
+	    	       
+	    	    } finally { 
+	    	        dragEvent.setDropCompleted(success); 
+	    	        dragEvent.consume(); 
+	    	    } 
+	    	});
+		   
+		   cir_ter.setOnDragDone(dragEvent -> { 
+	    	    final Dragboard dragBroard = dragEvent.getDragboard(); 
+	    	   
+	    	    if (dragEvent.getTransferMode() == TransferMode.MOVE) { 
+	    	        
+	    	    	
+	    	        
+	    	    }
+	    	  
+	    	    dragEvent.consume();
+	    	    cir_ter.setDisable(true);
+	    	    addBut(nb);
+	    	});
+		   
+		   
+	   }else {
+		// Nothing selected.
+     Alert alert = new Alert(AlertType.WARNING);
+     alert.initOwner(Main.getPrimaryStage());
+     alert.setTitle("Aucune personne n'a ete selectionnee");
+     alert.setHeaderText("Aucune persone n'est selectionnee");
+     alert.setContentText("Merci de bien vouloir selectionner une persone.");
+
+     alert.showAndWait();
+	   }
+	
+}
+
+public void addBut(int nb) {
+	if(nb==1) {
+		cir_cage1.setVisible(true);
+		 cir_cage1.setOnDragDetected(mouseEvent -> {
+	    		final Dragboard dragBroard = cir_cage1.startDragAndDrop(TransferMode.ANY);
+	    		final ClipboardContent content = new ClipboardContent();
+	    		final WritableImage capture = cir_cage1.snapshot(null, null);
+	    		content.putImage(capture);
+	            dragBroard.setContent(content); 
+	            mouseEvent.consume();
+	    		
+	    		
+	    	});
+	    	
+	    	cage1.setOnDragOver(dragEvent -> { 
+	    	    final Dragboard dragBroard = dragEvent.getDragboard(); 
+	    	   
+	    	    if (dragEvent.getGestureSource() != cage1) { 
+	    	        // Indique les modes de transfert autoris�s sur cette destination. 
+	    	        dragEvent.acceptTransferModes(TransferMode.ANY); 
+	    	    } 
+	    	    dragEvent.consume(); 
+	    	});
+	    	
+	    	cage1.setOnDragDropped(dragEvent -> { 
+	    	    boolean success = false; 
+	    	    try { 
+	    	        final Dragboard dragBroard = dragEvent.getDragboard(); 
+	    	        Point pointerLocation = MouseInfo.getPointerInfo().getLocation(); 
+
+	    	        int sceneX = pointerLocation.x;
+	    	        sceneX -= Main.getScene().getWindow().getX();
+	    	        sceneX -= Main.getScene().getX();
+	    	        
+
+	    	        int sceneY = pointerLocation.y; 
+	    	        sceneY -= Main.getScene().getWindow().getY();
+	    	        sceneY -= Main.getScene().getY();
+	    	        sceneY -= 26;
+	    	        
+	    	        cir_cage1.setLayoutX(sceneX);
+	    	        cir_cage1.setLayoutY(sceneY);
+	    	        
+	    	        
+	    	        success = true; 
+	    	    } catch (Exception ex) { 
+	    	       
+	    	    } finally { 
+	    	        dragEvent.setDropCompleted(success); 
+	    	        dragEvent.consume(); 
+	    	    } 
+	    	});
+		   
+		   cir_cage1.setOnDragDone(dragEvent -> { 
+	    	    final Dragboard dragBroard = dragEvent.getDragboard(); 
+	    	   
+	    	    if (dragEvent.getTransferMode() == TransferMode.MOVE) { 
+ 
+	    	    }
+	    	    
+	    	    Alert dialogC= new Alert(AlertType.CONFIRMATION);
+	    	    dialogC.setTitle("But ou pas ?");
+	    	    dialogC.setHeaderText(null);
+	    	    dialogC.setContentText("Pavard");
+	    	    ButtonType btnBut= new ButtonType("But");
+	    	    ButtonType btnPasBut= new ButtonType("Pas but");
+	    	    dialogC.getButtonTypes().setAll(btnBut, btnPasBut);
+	    	    Optional<ButtonType> answer= dialogC.showAndWait();
+	    	    if(answer.get() == btnBut){
+	    	    	System.out.println("BBUUUT");
+	    	    }
+	    	    else{
+	    	    	System.out.println("PPAASS BUUUT");
+	    	    }
+	    	    cir_ter.setVisible(false);
+	    	    cir_cage1.setVisible(false);
+	    	    
+	    	    
+	    	  
+	    	    dragEvent.consume(); 
+	    	});
+	}else {
+		cir_cage2.setVisible(true);
+		 cir_cage2.setOnDragDetected(mouseEvent -> {
+	    		final Dragboard dragBroard = cir_cage2.startDragAndDrop(TransferMode.ANY);
+	    		final ClipboardContent content = new ClipboardContent();
+	    		final WritableImage capture = cir_cage2.snapshot(null, null);
+	    		content.putImage(capture);
+	            dragBroard.setContent(content); 
+	            mouseEvent.consume();
+	    		
+	    		
+	    	});
+	    	
+	    	cage2.setOnDragOver(dragEvent -> { 
+	    	    final Dragboard dragBroard = dragEvent.getDragboard(); 
+	    	   
+	    	    if (dragEvent.getGestureSource() != cage2) { 
+	    	        // Indique les modes de transfert autoris�s sur cette destination. 
+	    	        dragEvent.acceptTransferModes(TransferMode.ANY); 
+	    	    } 
+	    	    dragEvent.consume(); 
+	    	});
+	    	
+	    	cage2.setOnDragDropped(dragEvent -> { 
+	    	    boolean success = false; 
+	    	    try { 
+	    	        final Dragboard dragBroard = dragEvent.getDragboard(); 
+	    	        Point pointerLocation = MouseInfo.getPointerInfo().getLocation(); 
+
+	    	        int sceneX = pointerLocation.x;
+	    	        sceneX -= Main.getScene().getWindow().getX();
+	    	        sceneX -= Main.getScene().getX();
+	    	        
+
+	    	        int sceneY = pointerLocation.y; 
+	    	        sceneY -= Main.getScene().getWindow().getY();
+	    	        sceneY -= Main.getScene().getY();
+	    	        sceneY -= 26;
+	    	        
+	    	        cir_cage2.setLayoutX(sceneX);
+	    	        cir_cage2.setLayoutY(sceneY);
+	    	        
+	    	        
+	    	        success = true; 
+	    	    } catch (Exception ex) { 
+	    	       
+	    	    } finally { 
+	    	        dragEvent.setDropCompleted(success); 
+	    	        dragEvent.consume(); 
+	    	    } 
+	    	});
+		   
+		   cir_cage2.setOnDragDone(dragEvent -> { 
+	    	    final Dragboard dragBroard = dragEvent.getDragboard(); 
+	    	   
+	    	    if (dragEvent.getTransferMode() == TransferMode.MOVE) { 
+	    	        
+	    	    	
+	    	        
+	    	    }
+	    	    Alert dialogC= new Alert(AlertType.CONFIRMATION);
+	    	    dialogC.setTitle("But ou pas ?");
+	    	    dialogC.setHeaderText(null);
+	    	    dialogC.setContentText("Pavard");
+	    	    ButtonType btnBut= new ButtonType("But");
+	    	    ButtonType btnPasBut= new ButtonType("Pas but");
+	    	    dialogC.getButtonTypes().setAll(btnBut, btnPasBut);
+	    	    Optional<ButtonType> answer= dialogC.showAndWait();
+	    	    if(answer.get() == btnBut){
+	    	    	System.out.println("BBUUUT");
+	    	    }
+	    	    else{
+	    	    	System.out.println("PPAASS BUUUT");
+	    	    }
+	    	    cir_ter.setVisible(false);
+	    	    cir_cage2.setVisible(false);
+	    	  
+	    	    dragEvent.consume(); 
+	    	});
+		
+	}
+}
+
+@FXML
+public void addShoot1() {
+	addShoot(personTable1, 1);
+}
+
+@FXML
+public void addShoot2() {
+	addShoot(personTable2, 2);
+}
+
 	@FXML
 	public void addRed1() {
 		addRed(personTable1, 1);
@@ -554,24 +776,6 @@ public void addBlue(TableView<Person> tabPers, int nb) {
 	   chronoPause = false;
    }
    
-   
-   /*TimerTask t = new TimerTask() {
-	   public void run() {
-			   if(chronoPause == false) {
-				   sec=sec+1;
-				   if(sec == 60) {
-					   min++;
-					   sec = 0;
-				   }
-			   }
-			   //chronoMinute.setText(Long.toString(min));
-			   //chronoSeconde.setText(Long.toString(sec));
-			   
-			}
-   };*/
-   
-   // je sais pas
-   //moi non plus
    
    
    

@@ -20,9 +20,9 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.RealTimeController">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" stylesheets="@btnStyle.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.RealTimeController">
    <children>
-      <GridPane gridLinesVisible="true" layoutX="-98.0" layoutY="-87.0" prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <GridPane fx:id="main" disable="true" gridLinesVisible="true" layoutX="-98.0" layoutY="-87.0" prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -73,7 +73,7 @@
                   </TableView>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="8.0" style="-fx-background-color: E9F5FF;" GridPane.rowIndex="1">
                      <children>
-                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#remplacer1" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="bChang1" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#remplacer1" opacity="0.25" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../image/bouton_changement.png" />
                            </image>
@@ -81,7 +81,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addYellow1" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="bYel1" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addYellow1" opacity="0.25" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../image/Carton_jaune.jpg" />
                            </image>
@@ -89,7 +89,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addRed1" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="bRed1" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addRed1" opacity="0.25" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../image/200px-Red_card.svg.jpg" />
                            </image>
@@ -97,7 +97,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addBlue1" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="bBlue1" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addBlue1" opacity="0.25" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../image/Carton_bleu.jpg" />
                            </image>
@@ -105,7 +105,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addExcl1" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="bTwo1" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addExcl1" opacity="0.25" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../image/btn_excl.png" />
                            </image>
@@ -113,7 +113,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addShoot1" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="bBal1" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addShoot1" opacity="0.25" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../image/ballondehandball.png" />
                            </image>
@@ -143,7 +143,7 @@
                                     </Label>
                                  </children>
                               </HBox>
-                              <Button fx:id="btnTempsMorts1" mnemonicParsing="false" onAction="#addTempsMorts1" text="Ajout temps mort">
+                              <Button fx:id="btnTempsMorts1" mnemonicParsing="false" onAction="#addTempsMorts1" text="Temps Morts">
                                  <font>
                                     <Font size="10.0" />
                                  </font></Button>
@@ -184,7 +184,7 @@
                                     </Label>
                                  </children>
                               </HBox>
-                              <Button fx:id="btnTempsMorts2" mnemonicParsing="false" onAction="#addTempsMorts2" text="Ajout temps mort">
+                              <Button fx:id="btnTempsMorts2" mnemonicParsing="false" onAction="#addTempsMorts2" text="Temps Morts">
                                  <font>
                                     <Font size="10.0" />
                                  </font></Button>
@@ -198,7 +198,7 @@
                            </children>
                         </VBox>
                         <Pane prefHeight="200.0" prefWidth="50.0" />
-                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addShoot2" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="bBal2" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addShoot2" opacity="0.25" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../image/ballondehandball.png" />
                            </image>
@@ -206,7 +206,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addExcl2" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="bTwo2" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addExcl2" opacity="0.25" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../image/btn_excl.png" />
                            </image>
@@ -214,7 +214,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addBlue2" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="bBlue2" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addBlue2" opacity="0.25" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../image/Carton_bleu.jpg" />
                            </image>
@@ -222,7 +222,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addYellow2" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="bRed2" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addYellow2" opacity="0.25" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../image/200px-Red_card.svg.png" />
                            </image>
@@ -230,7 +230,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addYellow2" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="bYel2" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#addYellow2" opacity="0.25" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../image/Carton_jaune.jpg" />
                            </image>
@@ -238,7 +238,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#remplacer2" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="bChang2" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#remplacer2" opacity="0.25" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../image/bouton_changement.png" />
                            </image>
@@ -374,17 +374,19 @@
                               </Label>
                               <Label fx:id="chronoSeconde" text="00">
                                  <padding>
-                                    <Insets right="30.0" />
+                                    <Insets right="10.0" />
                                  </padding>
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Button mnemonicParsing="false" onAction="#demarrerChrono" text="Commencer" />
-                              <ImageView fx:id="btnPlayPause" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#toggleChrono" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="btnPlayPause" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#toggleChrono" opacity="0.25" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../image/btn_pause.png" />
                                  </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </ImageView>
                               <Pane prefHeight="200.0" prefWidth="200.0">
                                  <children>
@@ -406,7 +408,7 @@
                <center>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <ImageView fx:id="ter" fitHeight="300.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="ter" fitHeight="300.0" fitWidth="500.0" opacity="0.25" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../image/terrain.jpg" />
                            </image>
@@ -417,7 +419,7 @@
                <right>
                   <HBox fx:id="cage2" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <ImageView fitHeight="300.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="cag2" fitHeight="300.0" fitWidth="350.0" opacity="0.25" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../image/Cage.jpg" />
                            </image>
@@ -431,7 +433,7 @@
                <left>
                   <HBox fx:id="cage1" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <ImageView fitHeight="300.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="cag1" fitHeight="300.0" fitWidth="350.0" opacity="0.25" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../image/Cage.jpg" />
                            </image>
@@ -451,5 +453,13 @@
          </cursor></Circle>
       <Circle fx:id="cir_cage1" fill="DODGERBLUE" layoutX="180.0" layoutY="625.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
       <Circle fx:id="cir_cage2" fill="DODGERBLUE" layoutX="1105.0" layoutY="625.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+      <HBox fx:id="demarre" alignment="CENTER" prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="btnDemarrer" mnemonicParsing="false" onAction="#demarerMatch" stylesheets="@btnStyle.css" text="Commencer le match !">
+               <font>
+                  <Font size="20.0" />
+               </font></Button>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

@@ -23,6 +23,7 @@ import javafx.scene.image.WritableImage;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.control.Alert.AlertType;
@@ -99,13 +100,41 @@ public class RealTimeController {
     @FXML
     private Circle cir_cage2; 
     @FXML
-    private ImageView ter;
-    @FXML
     private HBox cage1;
     @FXML
     private HBox cage2;
     @FXML
+    private ImageView ter;
+    @FXML
     private ImageView btnPlayPause;
+    @FXML
+    private ImageView cag1;
+    @FXML
+    private ImageView cag2;
+    @FXML
+    private ImageView bChang1;
+    @FXML
+    private ImageView bYel1;
+    @FXML
+    private ImageView bRed1;
+    @FXML
+    private ImageView bBlue1;
+    @FXML
+    private ImageView bTwo1;
+    @FXML
+    private ImageView bBal1;
+    @FXML
+    private ImageView bChang2;
+    @FXML
+    private ImageView bYel2;
+    @FXML
+    private ImageView bRed2;
+    @FXML
+    private ImageView bBlue2;
+    @FXML
+    private ImageView bTwo2;
+    @FXML
+    private ImageView bBal2;
     @FXML
     private RadioButton tempsMorts11;
     @FXML
@@ -122,6 +151,15 @@ public class RealTimeController {
     private Button btnTempsMorts1;
     @FXML
     private Button btnTempsMorts2;
+    
+    @FXML
+    private Button btnDemarrer;
+    
+    @FXML
+    private GridPane main;
+    
+    @FXML 
+    private HBox demarre;
  
     long min, sec = 0;
     long mint1, sect1 = 0;
@@ -137,7 +175,6 @@ public class RealTimeController {
     public RealTimeController() {
     	
     }
-    
 	ScheduledService<Void> t = new ScheduledService<Void>() {	
 		protected Task<Void> createTask() {
 			return new Task<Void>(){
@@ -180,6 +217,12 @@ public class RealTimeController {
 	    				sect1=0;
 	    				mint1=0;
 	    				chronoPauseT1=true;
+	    				btnPlayPause.setDisable(false);
+	    				bBal1.setDisable(false);
+	    				bBal2.setDisable(false);
+	    				bBal1.setOpacity(1);
+	    				bBal2.setOpacity(1);
+	    				btnPlayPause.setOpacity(1);
 	            	}
 	            	if(chronoPauseT1 == false) {
 	 				   sect1=sect1+1;
@@ -214,6 +257,12 @@ public class RealTimeController {
 	    				sect2=0;
 	    				mint2=0;
 	    				chronoPauseT2=true;
+	    				btnPlayPause.setDisable(false);
+	    				btnPlayPause.setOpacity(1);
+	    				bBal1.setDisable(false);
+	    				bBal2.setDisable(false);
+	    				bBal1.setOpacity(1);
+	    				bBal2.setOpacity(1);
 	            	}
 	            	if(chronoPauseT2 == false) {
 	 				   sect2=sect2+1;
@@ -241,7 +290,6 @@ public class RealTimeController {
     
     @FXML
     private void initialize() {
-   
         firstNameColumn1.setCellValueFactory(
                 cellData -> cellData.getValue().lastNameProperty());
         lastNameColumn1.setCellValueFactory(
@@ -828,16 +876,19 @@ public void addBut(int nb) {
 				     alert.setTitle("Plus TM");
 				     alert.setHeaderText("Plus de temps morts disponible");
 				     alert.setContentText("Continuez match.");
-
 				     alert.showAndWait();
 				     break;
 			}
 			if (nbTM1 <= 3) {
 				btnTempsMorts1.setDisable(true);
 				btnTempsMorts2.setDisable(true);
+				btnPlayPause.setDisable(true);
+				btnPlayPause.setOpacity(0.25);
+				bBal1.setDisable(true);
+				bBal2.setDisable(true);
+				bBal1.setOpacity(0.25);
+				bBal2.setOpacity(0.25);
 				chronoPauseT1 = false;
-				
-				
 			}
 			
 		}else {
@@ -865,11 +916,19 @@ public void addBut(int nb) {
 			if (nbTM2 <= 3) {
 				btnTempsMorts1.setDisable(true);
 				btnTempsMorts2.setDisable(true);
+				btnPlayPause.setDisable(true);
+				btnPlayPause.setOpacity(0.25);
+				bBal1.setDisable(true);
+				bBal2.setDisable(true);
+				bBal1.setOpacity(0.25);
+				bBal2.setOpacity(0.25);
 				chronoPauseT2 = false;
 				
 			}
 			
+			
 		}
+		toggleChrono();
 	}
 	
 	@FXML
@@ -919,7 +978,7 @@ public void addBut(int nb) {
 
 
    @FXML 
-   public void demarrerChrono() {
+   public void demarerMatch() {
 	 
 	  if(!chronoIsRunning) {
 		  min = 0;
@@ -928,8 +987,27 @@ public void addBut(int nb) {
 		  chronoIsRunning = true;
 		   
 	  }
+	  main.setDisable(false);
+	  demarre.setVisible(false);
+	  ter.setOpacity(1);
+	  btnPlayPause.setOpacity(1);
+	  cag1.setOpacity(1);
+	  cag2.setOpacity(1);
+	  bChang1.setOpacity(1);
+	  bYel1.setOpacity(1);
+	  bRed1.setOpacity(1);
+	  bBlue1.setOpacity(1);
+	  bBal1.setOpacity(1);
+	  bTwo1.setOpacity(1);
+	  bChang2.setOpacity(1);
+	  bYel2.setOpacity(1);
+	  bRed2.setOpacity(1);
+	  bBlue2.setOpacity(1);
+	  bBal2.setOpacity(1);
+	  bTwo2.setOpacity(1);
 	 
    }
+
   
    @FXML 
    public void toggleChrono() {

@@ -468,16 +468,16 @@ public class RealTimeController {
 		// Nothing selected.
            Alert alert = new Alert(AlertType.WARNING);
            alert.initOwner(Main.getPrimaryStage());
-<<<<<<< HEAD
+
            alert.setTitle("Aucune personne n'a ete selectionnee");
            alert.setHeaderText("Aucune personne n'est selectionnee");
            alert.setContentText("Merci de bien vouloir selectionner une personne.");
 
-=======
+
            alert.setTitle("Aucune personne selectionnee");
            alert.setHeaderText("Aucune personne n'est selectionnee");
            alert.setContentText("Merci de bien vouloir selectionner une personne.");
->>>>>>> refs/heads/pavard
+
            alert.showAndWait();
 	   }
 
@@ -492,11 +492,11 @@ public class RealTimeController {
 		// Nothing selected.
            Alert alert = new Alert(AlertType.WARNING);
            alert.initOwner(Main.getPrimaryStage());
-<<<<<<< HEAD
+
            alert.setTitle("Aucune personne n'a ete selectionnee");
-=======
+
            alert.setTitle("Aucune personne selectionnee");
->>>>>>> refs/heads/pavard
+
            alert.setHeaderText("Aucune personne n'est selectionnee");
            alert.setContentText("Merci de bien vouloir selectionner une personne.");
            alert.showAndWait();
@@ -513,16 +513,16 @@ public void addRed(TableView<Person> tabPers, int nb) {
 		// Nothing selected.
            Alert alert = new Alert(AlertType.WARNING);
            alert.initOwner(Main.getPrimaryStage());
-<<<<<<< HEAD
+
            alert.setTitle("Aucune personne n'a ete selectionnee");
            alert.setHeaderText("Aucune personne n'est selectionnee");
            alert.setContentText("Merci de bien vouloir selectionner une personne.");
 
-=======
+
            alert.setTitle("Aucune personne selectionnee");
            alert.setHeaderText("Aucune personne n'est selectionnee");
            alert.setContentText("Merci de bien vouloir selectionner une personne.");
->>>>>>> refs/heads/pavard
+
            alert.showAndWait();
 	   }
 
@@ -538,16 +538,16 @@ public void addBlue(TableView<Person> tabPers, int nb) {
 		// Nothing selected.
         Alert alert = new Alert(AlertType.WARNING);
         alert.initOwner(Main.getPrimaryStage());
-<<<<<<< HEAD
+
         alert.setTitle("Aucune personne n'a ete selectionnee");
         alert.setHeaderText("Aucune personne n'est selectionnee");
         alert.setContentText("Merci de bien vouloir selectionner une personne.");
 
-=======
+
         alert.setTitle("Aucune personne selectionnee");
         alert.setHeaderText("Aucune personne n'est selectionnee");
         alert.setContentText("Merci de bien vouloir selectionner une personne.");
->>>>>>> refs/heads/pavard
+
         alert.showAndWait();
 	   }
 
@@ -631,15 +631,15 @@ public void addShoot(TableView<Person> tabPers, int nb) {
 		// Nothing selected.
      Alert alert = new Alert(AlertType.WARNING);
      alert.initOwner(Main.getPrimaryStage());
-<<<<<<< HEAD
+
      alert.setTitle("Aucune personne n'a ete selectionnee");
      alert.setHeaderText("Aucune personne n'est selectionnee ou le joueur est l'entraineur");
      alert.setContentText("Merci de bien vouloir selectionner une personne valide.");
-=======
+
      alert.setTitle("Aucune personne selectionnee");
      alert.setHeaderText("Aucune personne n'est selectionnee");
      alert.setContentText("Merci de bien vouloir selectionner une personne.");
->>>>>>> refs/heads/pavard
+
 
      alert.showAndWait();
 	   }

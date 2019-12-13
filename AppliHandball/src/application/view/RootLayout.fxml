@@ -11,7 +11,8 @@
         <menus>
           <Menu mnemonicParsing="false" text="Open">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem mnemonicParsing="false" onAction="#ouvrirMatch" text="Nouveau Match" />
+                  <MenuItem mnemonicParsing="false" onAction="#ovrirStats" text="Statistiques" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
@@ -19,6 +20,11 @@
               <MenuItem mnemonicParsing="false" onAction="#ouvrirAide" text="ouvrir l'aide" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Option">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#close" text="Close" />
+              </items>
+            </Menu>
         </menus>
       </MenuBar>
    </top>

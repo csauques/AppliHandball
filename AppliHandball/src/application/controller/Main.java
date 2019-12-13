@@ -3,7 +3,6 @@ package application.controller;
 
 import application.model.Person;
 import application.view.SwitchWindowController;
-import application.view.pageAideController;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,7 +21,6 @@ public class Main extends Application {
 	private static Stage primaryStage;
     private static BorderPane rootLayout;
     private static Scene scene;
-    private MenuBar myMenu;
     //trouver un moyen de stocker tous les joueurs dans une structur de donnée (liste peut etre ??)
     
     private static ObservableList<Person> personEquip1 = FXCollections.observableArrayList();
@@ -160,31 +158,6 @@ public class Main extends Application {
 	        }
 	    }
 	 
-	 public static void ouvrirAide() {
-	      try {
-	            // Load the fxml file and create a new stage for the popup dialog.
-	            FXMLLoader loader = new FXMLLoader();
-	            loader.setLocation(Main.class.getResource("../view/pageAide.fxml"));
-	            AnchorPane page = (AnchorPane) loader.load();
-
-	            // Create the dialog Stage.
-	            Stage dialogStage = new Stage();
-	            dialogStage.setTitle("aide");
-	            dialogStage.initModality(Modality.WINDOW_MODAL);
-	            dialogStage.initOwner(primaryStage);
-	            Scene scene = new Scene(page);
-	            dialogStage.setScene(scene);
-
-	            // Set the person into the controller.
-	            pageAideController controller = loader.getController();
-
-	            // Show the dialog and wait until the user closes it
-	            dialogStage.show();
-
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
-	}
 	
 	public static void stopApp() {
 		primaryStage.close();

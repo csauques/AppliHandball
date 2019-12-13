@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html title ="page d'aide bv">
+ <head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+   <link rel="stylesheet" type="text/css" href="style.css" />
+   <title> titre </title>
+ </head>
+ <body>
+<header>
+    <h1>Manuel d'utilisation de l'application de HandBall</h1>
+</header>
+<br>
+<br>
+<br>
+<div class="titre">
+    <h1>table des matières</h1>
+</div>
+<br>
+<div class= "liste">
+<ul class ="liste" >
+    <li> <a href="#presentation" class = "tm">Présentation de l'application</a></li>
+    <li><a href = "#TR" class = "tm">fonctionnement de la partie temps réel</a>
+        <ul class="liste">
+            <li><a href = "#GE" class = "tm">gestion des équipes</a></li>
+            <li><a href = "#GB" class = "tm">gestion des buts et du chronomètre</a></li>
+        </ul>
+    </li>
+</ul>
+</div>
+<br>
+<div class="titre">
+    <h1 id="presentation">Présentation de l'application</h1>
+</div>
+<p> Cette application est une appllication da tavble des marques en Handball. Elle vous permet de gérer le déroulement d'un match de manière automatiséee.
+    Notre application vous permettra également de gérer les statistiques relatives aux match effectués entre les différentes équipes, mais également de voir
+    son classement au sein de sa ligue. Cette application se veut simple d'utilisation et ergonomique pour un gain de temps et une réactivité maximale! lorsque l'application est lancée,
+    vous arrivez sur le menu principale de celle-ci. Celui-ci vous laisse 3 choix : </p>
+    <div class = "liste">
+        <ul class = "liste">
+            <li> accéder à la gestion en temps réel d'un match </li>
+            <li> consulter les statistiques relative à une équipe</li>
+            <li> quiter l'application</li>
+        </ul>
+    </div>
+<p>
+    nous allons traiter le fonctionnement de chacune de ces parties au cours de la lecture de cette page d'aide.
+</p>
+<div class="titre">
+<h1 id = "TR">Fonctionnement de la partie temps réel</h1>
+</div>
+<ul>
+    <h1><li id = "GE"> I. La gestion des équipes </br></h1>
+        <br>
+        <br>
+        <img src = "./interfaceTempsRéel.png"></img>
+        <br>
+        <br>
+        <p>
+            Dans cette partie, on va étudier le fonctionnement de la partie haute de l'application. Elle est scindée en deux partues (droite et gauche) et permet la gestion des deux équipes
+            Tout d'abord intéressons-nous au tableau. Ce tableau contient l'intégralité des personnes en jeu dans l'équipe à l'instant T de la partie. Y figurent le nom, le prénom et le numéro de mailot du joueur
+            ("Ent" indique qu'il s'agit de l'entraîneur). En cliquant sur un des joueurs, vous verrez alors s'afficher (s'il en a reçu), les diférentes fautes qu'il a reçues, juste à droite de ce tableau. Passons maintenant
+            à ce qui se trouve en-dessous du tableau.
+        </p>
+        <P>
+            En dessous du tableau se trouve une pléthore de boutons dont nous allons détailler le fonctionnement. Les boutons sont les suivants:
+            <div class = "liste">
+            <ul class = "liste">
+                <li>échanger un joueur</li>
+                <li>donner un carton rouge au joueur</li>
+                <li>donner un carton jaune au joueur</li>
+                <li>donner un carton bleu au joueur</li>
+                <li>exclure un joueur 2 minutes</li>
+                <li>indiquer que le joueur vient de marquer un but</li>
+                <li>ajouter un temps mort pour l'équipe</li>
+            </ul>
+        </div>
+            <br>
+            les différents boutons sont imagés de manière à etre reconnaissable facilement (cartons de couleur pour les différents cartons, ballon pour le but...)
+            détaillons maintenant le fonctionnement de chaque bouton:
+            <br>
+            <br>
+            <ul >
+                <li>pour les cartons jaunes, rouge, bleu ainsi que l'exclusion: il suffit de selectionner le joueur et de cliquer sue le carton de la couleur correspondante. Une pop-up apparaitra lors pour vous demander de confirmer ce choix, puis la faute s'afficheera alors a droite a coté du tableau de joueurs</li>
+                <li>pour le changement de joueur: il suffit de sélectionner le joueur a échénger et de cliquer sur le bouton d'échange. Une seconde fenêtre s'ouvrira pour vous demander de choisir la personne avec qui il a été échangé. il ne restera plus qu'a valider l'échange et l'échange sera alors pris en compte</li>
+                <li>pour enregistrer un tir: il suffit de sélectionner le jouer puis de cliquer sur le ballon. La suite de la procédure sera expliquée dans le <b><a href = "#GB">mode de fonctionnement des buts et du chronomètre</a></b></li>
+                <li>pour ajouter un temps mort: il suffit simplement de cliquer sur le bouton temps mort. L'activation du temps mort stoppera automatiquement le chronomètre du match. (il faudra par contre le relancer manuellement)</li>
+            </ul>
+        </p>
+    </li>
+    <br>
+    <h1><li id = "GB">II. Gestion des buts et du chronomètre</li></h1>
+    <br>
+    <p>Dans cette partie, nous allons nous concentrer sur la partie basse de la partie temps réel. Nous allons apparendre à:
+        <ul >
+            <li>utiliser le chronomètre</li>
+            <li>enregistrer un but par un joueur</li>
+        </ul>
+        <br>
+        <h1>1. Utilisation du chronomètre</h1>
+
+        <p> Son focntionement n'est pas très compliqué: il suffit simplement d'appuyer sur le bouton à droite du chrono pour arreter/relancer celui-ci. à noter que lorsque le match se termine, vous serez automatiquement redirigé sur la page principale de l'application</p>
+
+        <h1> 2. Enregistrement d'un but</h1>
+
+            <p>Pour renregistrer un but, vous devez au préalable avoir préssé le bouton de notification de but (voir la partie relative à la <b><a href = "#GE">gestion des équipes</a></b> pour plus d'informations).
+                Une fois cette étape préalablement accomplie, un petit jeton bleu apparaitra alors. Il vous suffira de le glisser vers l'emplacement ou le joueur a tiré, puis un second jeton apparaitra, cette fois-ci dans les cages. Il faudra alors glisser le jeton à l'emplacement ou la balle a touché,
+                puis une pop-up aparaitra pour vous demander si c'est un but valide ou non. Une fois ceci fait, le score sera alors mis a jour pour l'équipe marquante.
+            </p>
+    </p>
+</ul>
+
+
+ </body>
+</html>

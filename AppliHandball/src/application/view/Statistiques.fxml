@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.StatistiquesController">
    <children>
       <TabPane layoutX="223.0" layoutY="113.0" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: E9F5FF;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
@@ -98,7 +98,7 @@
                                     <Insets left="5.0" />
                                  </padding>
                               </Label>
-                              <Label text="Classement Gardiens Lidl Starligue :" GridPane.columnIndex="1">
+                              <Label text="Classement Gardiens Proligue :" GridPane.columnIndex="1">
                                  <font>
                                     <Font name="System Bold Italic" size="18.0" />
                                  </font>
@@ -106,7 +106,7 @@
                                     <Insets left="5.0" />
                                  </padding>
                               </Label>
-                              <Label text="Classement Gardiens Proligue :" GridPane.rowIndex="2">
+                              <Label text="Classement Buteurs Proligue :" GridPane.rowIndex="2">
                                  <font>
                                     <Font name="System Bold Italic" size="18.0" />
                                  </font>
@@ -201,7 +201,7 @@
                             <RowConstraints minHeight="10.0" percentHeight="60.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <GridPane gridLinesVisible="true" GridPane.rowIndex="2">
+                              <GridPane fx:id="infoEq" disable="true" gridLinesVisible="true" GridPane.rowIndex="2">
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -212,12 +212,12 @@
                                  <children>
                                     <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
                                        <children>
-                                          <Label disable="true" text="Statistiques de l'équipe :">
+                                          <Label text="Statistiques de l'équipe :">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
                                           </Label>
-                                          <ListView disable="true" prefHeight="350.0" prefWidth="200.0" />
+                                          <ListView prefHeight="350.0" prefWidth="200.0" />
                                        </children>
                                        <GridPane.margin>
                                           <Insets top="20.0" />
@@ -249,20 +249,20 @@
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox prefWidth="150.0" />
+                                    <ComboBox fx:id="comboBoxLigueEq" onAction="#choixLigueEq" prefWidth="150.0" />
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" spacing="60.0" GridPane.rowIndex="1">
+                              <HBox fx:id="choixjouEq" alignment="CENTER_LEFT" disable="true" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" spacing="60.0" GridPane.rowIndex="1">
                                  <padding>
                                     <Insets left="20.0" />
                                  </padding>
                                  <children>
-                                    <Label disable="true" text="Choisissez l'équipe recherché :">
+                                    <Label text="Choisissez l'équipe recherché :">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox disable="true" prefWidth="150.0" />
+                                    <ComboBox fx:id="comboBoxEquipeEq" onAction="#choixEquipeEq" prefWidth="150.0" />
                                  </children>
                               </HBox>
                            </children>
@@ -294,26 +294,26 @@
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox prefWidth="150.0" />
+                                    <ComboBox fx:id="comboBoxLigueMat" onAction="#choixLigueMat" prefWidth="150.0" />
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" spacing="60.0" GridPane.rowIndex="1">
+                              <HBox fx:id="choixjouMat" alignment="CENTER_LEFT" disable="true" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" spacing="60.0" GridPane.rowIndex="1">
                                  <padding>
                                     <Insets left="20.0" />
                                  </padding>
                                  <children>
-                                    <Label disable="true" text="Choisissez l'équipe 1 :">
+                                    <Label text="Choisissez l'équipe 1 :">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox disable="true" prefWidth="150.0" />
-                                    <Label disable="true" layoutX="30.0" layoutY="70.0" text="Choisissez l'équipe 2 :">
+                                    <ComboBox fx:id="comboBoxEquipe1Mat" prefWidth="150.0" />
+                                    <Label layoutX="30.0" layoutY="70.0" text="Choisissez l'équipe 2 :">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox disable="true" layoutX="321.0" layoutY="75.0" prefWidth="150.0" />
+                                    <ComboBox fx:id="comboBoxEquipe2Mat" layoutX="321.0" layoutY="75.0" prefWidth="150.0" />
                                  </children>
                               </HBox>
                               <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.rowIndex="2">

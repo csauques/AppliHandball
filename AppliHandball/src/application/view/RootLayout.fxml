@@ -9,20 +9,20 @@
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="Open">
+          <Menu mnemonicParsing="false" text="Ouvrir">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#ouvrirMatch" text="Nouveau Match" />
                   <MenuItem mnemonicParsing="false" onAction="#ovrirStats" text="Statistiques" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
+          <Menu mnemonicParsing="false" text="Aide">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#ouvrirAide" text="ouvrir l'aide" />
+              <MenuItem mnemonicParsing="false" onAction="#ouvrirAide" text="Ouvrir Aide en Ligne" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" text="Option">
+            <Menu mnemonicParsing="false" text="Options">
               <items>
-                <MenuItem mnemonicParsing="false" onAction="#close" text="Close" />
+                <MenuItem mnemonicParsing="false" onAction="#close" text="Fermer" />
               </items>
             </Menu>
         </menus>

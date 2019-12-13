@@ -778,7 +778,7 @@ public void addBut(int nb) {
 	    	    Alert dialogC= new Alert(AlertType.CONFIRMATION);
 	    	    dialogC.setTitle("But ou pas ?");
 	    	    dialogC.setHeaderText(null);
-	    	    dialogC.setContentText("Pavard");
+	    	    dialogC.setContentText("Est-ce qu'il y a eu un but ?");
 	    	    ButtonType btnBut= new ButtonType("But");
 	    	    ButtonType btnPasBut= new ButtonType("Pas but");
 	    	    dialogC.getButtonTypes().setAll(btnBut, btnPasBut);
@@ -786,9 +786,6 @@ public void addBut(int nb) {
 	    	    if(answer.get() == btnBut){
 	    	    	scor1++;
 	    	    	score1.setText(Integer.toString(scor1));
-	    	    }
-	    	    else{
-	    	    	System.out.println("PPAASS BUUUT");
 	    	    }
 	    	    cir_ter.setVisible(false);
 	    	    cir_cage1.setVisible(false);
@@ -859,7 +856,7 @@ public void addBut(int nb) {
 	    	    Alert dialogC= new Alert(AlertType.CONFIRMATION);
 	    	    dialogC.setTitle("But ou pas ?");
 	    	    dialogC.setHeaderText(null);
-	    	    dialogC.setContentText("Pavard");
+	    	    dialogC.setContentText("Est-ce qu'il y a eu un but ?");
 	    	    ButtonType btnBut= new ButtonType("But");
 	    	    ButtonType btnPasBut= new ButtonType("Pas but");
 	    	    dialogC.getButtonTypes().setAll(btnBut, btnPasBut);
@@ -867,9 +864,6 @@ public void addBut(int nb) {
 	    	    if(answer.get() == btnBut){
 	    	    	scor2++;
 	    	    	score2.setText(Integer.toString(scor1));
-	    	    }
-	    	    else{
-	    	    	System.out.println("PPAASS BUUUT");
 	    	    }
 	    	    cir_ter.setVisible(false);
 	    	    cir_cage2.setVisible(false);
@@ -994,10 +988,6 @@ public void addBut(int nb) {
 	   addYellow(personTable2, 2);
    }
    
-
-   public void test() {
-	   System.out.println("test");
-   }
 
 
    @FXML 

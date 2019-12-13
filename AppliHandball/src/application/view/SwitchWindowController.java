@@ -91,9 +91,9 @@ public class SwitchWindowController {
 		           // Nothing selected.
 		           Alert alert = new Alert(AlertType.WARNING);
 		           alert.initOwner(Main.getPrimaryStage());
-		           alert.setTitle("aucun joueur selectionne");
-		           alert.setHeaderText("personne n'est selectionne");
-		           alert.setContentText("veuillez choisir une personne.");
+		           alert.setTitle("Aucun joueur selectionne");
+		           alert.setHeaderText("Personne n'est selectionne");
+		           alert.setContentText("Veuillez choisir une personne.");
 
 		           alert.showAndWait();
 		       }

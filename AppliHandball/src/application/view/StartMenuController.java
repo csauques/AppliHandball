@@ -23,7 +23,7 @@ public class StartMenuController {
 	
 	@FXML
 	public void handleStats() {
-		Main.changeScene("../view/Stats.fxml", 1000, 800);
+		Main.changeScene("../view/Statistiques.fxml", 1000, 800);
 	}
 	
 	@FXML

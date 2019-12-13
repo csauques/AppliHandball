@@ -18,12 +18,12 @@ public class StartMenuController {
 	
 	@FXML
 	public void  handleRealTime() {
-		Main.changeScene("../view/RealTimev1.fxml", 1000, 800);
+		Main.changeScene("../view/RealTimev1.fxml", 1280, 800);
 	}
 	
 	@FXML
 	public void handleStats() {
-		Main.changeScene("../view/Statistiques.fxml", 1000, 800);
+		Main.changeScene("../view/Statistiques.fxml", 1280, 800);
 	}
 	
 	@FXML

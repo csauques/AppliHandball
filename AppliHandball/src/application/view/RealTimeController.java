@@ -160,7 +160,16 @@ public class RealTimeController {
     
     @FXML 
     private HBox demarre;
- 
+    
+    @FXML
+    private Label score1;
+    
+    @FXML 
+    private Label score2;
+    
+    
+    private int scor1 = 0;
+    private int scor2 = 0;
     long min, sec = 0;
     long mint1, sect1 = 0;
     long mint2, sect2 = 0;
@@ -179,6 +188,7 @@ public class RealTimeController {
 		protected Task<Void> createTask() {
 			return new Task<Void>(){
 	            protected Void call() throws Exception{
+	            	
 	            	if(chronoPause == false) {
 	 				   sec=sec+1;
 	 				   if(sec == 60) {
@@ -188,6 +198,17 @@ public class RealTimeController {
 	            	}
 	            	Platform.runLater(new Runnable() {
 	            		public void run () {
+	            			if(min==5) {
+	   	            		 Alert alert = new Alert(AlertType.INFORMATION);
+	   	                     alert.initOwner(Main.getPrimaryStage());
+	   	                     alert.setTitle("Fini");
+	   	                     alert.setHeaderText("Le match est termine !");
+	   	                     alert.setContentText("Vous allez etre redirige vers le menu principal.");
+	   	                     alert.showAndWait();
+	   	                     //TODO enregistrer les stats du match
+	   	                     
+	   	                     Main.changeScene("../view/StartMenu.fxml", 500, 500);
+	            			}
 	            			if(min < 10) {
 	            				chronoMinute.setText("0".concat(Long.toString(min)));
 	            			}else {
@@ -763,7 +784,8 @@ public void addBut(int nb) {
 	    	    dialogC.getButtonTypes().setAll(btnBut, btnPasBut);
 	    	    Optional<ButtonType> answer= dialogC.showAndWait();
 	    	    if(answer.get() == btnBut){
-	    	    	System.out.println("BBUUUT");
+	    	    	scor1++;
+	    	    	score1.setText(Integer.toString(scor1));
 	    	    }
 	    	    else{
 	    	    	System.out.println("PPAASS BUUUT");
@@ -843,7 +865,8 @@ public void addBut(int nb) {
 	    	    dialogC.getButtonTypes().setAll(btnBut, btnPasBut);
 	    	    Optional<ButtonType> answer= dialogC.showAndWait();
 	    	    if(answer.get() == btnBut){
-	    	    	System.out.println("BBUUUT");
+	    	    	scor2++;
+	    	    	score2.setText(Integer.toString(scor1));
 	    	    }
 	    	    else{
 	    	    	System.out.println("PPAASS BUUUT");

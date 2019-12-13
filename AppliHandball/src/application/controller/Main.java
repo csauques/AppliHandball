@@ -113,10 +113,10 @@ public class Main extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource(scenePath));
             AnchorPane menu = (AnchorPane) loader.load();
-            primaryStage.setMinHeight(800);
-            primaryStage.setMinWidth(1280);
-            primaryStage.setMaxHeight(800);
-            primaryStage.setMaxWidth(1280);
+            primaryStage.setMinHeight(lar);
+            primaryStage.setMinWidth(lon);
+            primaryStage.setMaxHeight(lar);
+            primaryStage.setMaxWidth(lon);
             //primaryStage.setMaximized(true);
             primaryStage.setScene(scene);
             rootLayout.setCenter(menu);

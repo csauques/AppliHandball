@@ -174,7 +174,7 @@ public class RealTimeController {
 		protected Task<Void> createTask() {
 			return new Task<Void>(){
 	            protected Void call() throws Exception{
-	            	if(mint1==2) {
+	            	if(mint1==1) {
 	            		btnTempsMorts1.setDisable(false);
 	    				btnTempsMorts2.setDisable(false);
 	    				sect1=0;
@@ -208,7 +208,7 @@ public class RealTimeController {
 		protected Task<Void> createTask() {
 			return new Task<Void>(){
 	            protected Void call() throws Exception{
-	            	if(mint2==2) {
+	            	if(mint2==1) {
 	            		btnTempsMorts1.setDisable(false);
 	    				btnTempsMorts2.setDisable(false);
 	    				sect2=0;

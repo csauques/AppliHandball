@@ -43,8 +43,8 @@ public class Main extends Application {
     	personEquip2.add(new Person("Djamel", "Audos", "3", true));
     	personEquip2.add(new Person("Luc", "Arne", "4", true));
     	personEquip2.add(new Person("Charles", "Atan", "5", true));
-    	personEquip2.add(new Person("Gerard", "Manvussa", "6", false));
-    	personEquip2.add(new Person("Paul", "Lauchon", "7", false));
+    	personEquip2.add(new Person("Gerard", "Manvussa", "6", true));
+    	personEquip2.add(new Person("Paul", "Lauchon", "7", true));
     	personEquip2.add(new Person("Vincent", "Thimaitre", "8", false));
     }
     

@@ -1,7 +1,5 @@
 package application.view;
 
-
-
 import java.awt.MouseInfo;
 import java.awt.Point;
 import java.util.Optional;
@@ -16,21 +14,19 @@ import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.ClipboardContent;
-import javafx.scene.input.DataFormat;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.util.Duration;
 
@@ -39,7 +35,7 @@ public class RealTimeController {
 	private ObservableList<Person> joueurRemp1 = FXCollections.observableArrayList();
 	private ObservableList<Person> joueurRemp2 = FXCollections.observableArrayList();
 	
-	private ObservableList<Person> equipe1= FXCollections.observableArrayList();
+	private ObservableList<Person> equipe1 = FXCollections.observableArrayList();
 	private ObservableList<Person> equipe2 = FXCollections.observableArrayList();
 	
 	@FXML
@@ -60,7 +56,6 @@ public class RealTimeController {
     private TableColumn<Person, String> numberColumn2;
     @FXML
     private TableColumn<Person, Image> imageColumn;
-
     @FXML
     private ImageView red1;
     @FXML
@@ -72,9 +67,7 @@ public class RealTimeController {
     @FXML
     private ImageView excl21;
     @FXML
-    private ImageView excl31;
-    
-    
+    private ImageView excl31;   
     @FXML
     private ImageView red2;
     @FXML
@@ -88,18 +81,23 @@ public class RealTimeController {
     @FXML
     private ImageView excl32;
     @FXML
-    private Label chronoMinute;
-    
+    private Label chronoMinute;   
     @FXML
-    private Label chronoSeconde;
-    
+    private Label chronoSeconde;  
+    @FXML
+    private Label chronoMinuteT1;   
+    @FXML
+    private Label chronoSecondeT1;
+    @FXML
+    private Label chronoMinuteT2;   
+    @FXML
+    private Label chronoSecondeT2;
     @FXML
     private Circle cir_ter; 
     @FXML
     private Circle cir_cage1; 
     @FXML
     private Circle cir_cage2; 
-    
     @FXML
     private ImageView ter;
     @FXML
@@ -108,14 +106,36 @@ public class RealTimeController {
     private HBox cage2;
     @FXML
     private ImageView btnPlayPause;
+    @FXML
+    private RadioButton tempsMorts11;
+    @FXML
+    private RadioButton tempsMorts12;
+    @FXML
+    private RadioButton tempsMorts13;
+    @FXML
+    private RadioButton tempsMorts21;
+    @FXML
+    private RadioButton tempsMorts22;
+    @FXML
+    private RadioButton tempsMorts23;
+    @FXML
+    private Button btnTempsMorts1;
+    @FXML
+    private Button btnTempsMorts2;
  
     long min, sec = 0;
+    long mint1, sect1 = 0;
+    long mint2, sect2 = 0;
+    int nbTM1, nbTM2 = 0;
     
     boolean chronoPause = true;
+    boolean chronoPauseT1 = true;
+    boolean chronoPauseT2 = true;
     boolean chronoIsRunning = false;
     
     
     public RealTimeController() {
+    	
     }
     
 	ScheduledService<Void> t = new ScheduledService<Void>() {	
@@ -128,7 +148,7 @@ public class RealTimeController {
 	 					   min++;
 	 					   sec = 0;
 	 				   }
-	 			   }
+	            	}
 	            	Platform.runLater(new Runnable() {
 	            		public void run () {
 	            			if(min < 10) {
@@ -136,13 +156,80 @@ public class RealTimeController {
 	            			}else {
 	            				chronoMinute.setText(Long.toString(min));
 	            			}
-	            			
 	            			if(sec < 10) {
-	            				 chronoSeconde.setText("0".concat(Long.toString(sec)));
+	            				chronoSeconde.setText("0".concat(Long.toString(sec)));
 	            			}else {
-	 	     	 			   chronoSeconde.setText(Long.toString(sec));
+	 	     	 				chronoSeconde.setText(Long.toString(sec));
 	            			}
 
+	            		}
+	            	});
+	 			   return null;
+	            }
+			};
+		}
+	};
+	
+	ScheduledService<Void> tMort1 = new ScheduledService<Void>() {	
+		protected Task<Void> createTask() {
+			return new Task<Void>(){
+	            protected Void call() throws Exception{
+	            	if(mint1==1) {
+	            		btnTempsMorts1.setDisable(false);
+	    				btnTempsMorts2.setDisable(false);
+	    				sect1=0;
+	    				mint1=0;
+	    				chronoPauseT1=true;
+	            	}
+	            	if(chronoPauseT1 == false) {
+	 				   sect1=sect1+1;
+	 				   if(sect1 == 60) {
+	 					   mint1++;
+	 					   sect1 = 0;
+	 				   }
+	            	}
+	            	Platform.runLater(new Runnable() {
+	            		public void run () {
+	            			chronoMinuteT1.setText("0".concat(Long.toString(mint1)));
+	            			if(sect1 < 10) {
+	            				 chronoSecondeT1.setText("0".concat(Long.toString(sect1)));
+	            			}else {
+	 	     	 			   chronoSecondeT1.setText(Long.toString(sect1));
+	            			}
+	            		}
+	            	});
+	 			   return null;
+	            }
+			};
+		}
+	};
+	
+	ScheduledService<Void> tMort2 = new ScheduledService<Void>() {	
+		protected Task<Void> createTask() {
+			return new Task<Void>(){
+	            protected Void call() throws Exception{
+	            	if(mint2==1) {
+	            		btnTempsMorts1.setDisable(false);
+	    				btnTempsMorts2.setDisable(false);
+	    				sect2=0;
+	    				mint2=0;
+	    				chronoPauseT2=true;
+	            	}
+	            	if(chronoPauseT2 == false) {
+	 				   sect2=sect2+1;
+	 				   if(sect2 == 60) {
+	 					   mint2++;
+	 					   sect2 = 0;
+	 				   }
+	            	}
+	            	Platform.runLater(new Runnable() {
+	            		public void run () {
+	            			chronoMinuteT2.setText("0".concat(Long.toString(mint2)));
+	            			if(sect2 < 10) {
+	            				 chronoSecondeT2.setText("0".concat(Long.toString(sect2)));
+	            			}else {
+	 	     	 			   chronoSecondeT2.setText(Long.toString(sect2));
+	            			}
 	            		}
 	            	});
 	 			   return null;
@@ -154,11 +241,7 @@ public class RealTimeController {
     
     @FXML
     private void initialize() {
-    
-    	
-    	
-    	
-    	// Initialize the person table with the two columns.
+   
         firstNameColumn1.setCellValueFactory(
                 cellData -> cellData.getValue().lastNameProperty());
         lastNameColumn1.setCellValueFactory(
@@ -172,21 +255,19 @@ public class RealTimeController {
                 cellData -> cellData.getValue().firstNameProperty());
         numberColumn2.setCellValueFactory(
                 cellData -> cellData.getValue().numberProperty());
-        
-        /*imageColumn.setCellValueFactory(
-        		new PropertyValueFactory<Person, Image>("../image/Carton_jaune.jpg"));*/
  
         
         setMainApp();
         
         t.setPeriod(Duration.seconds(1));
-
         t.start();
+        
+        tMort1.setPeriod(Duration.seconds(1));
+		tMort1.start();
+		
+		tMort2.setPeriod(Duration.seconds(1));
+		tMort2.start();
 
-        //Clear person details.
-        //showPersonDetails(null, 0);
-
-        //Listen for selection changes and show the person details when changed.
         personTable1.getSelectionModel().selectedItemProperty().addListener(
               (observable, oldValue, newValue) -> showPersonDetails(newValue, 1));
         
@@ -205,14 +286,12 @@ public class RealTimeController {
     	for(int i = 0 ; i < equipe1.size(); i++) {
     		if(!(equipe1.get(i).isPlaying())) {
     			joueurRemp1.add(equipe1.get(i));
-    			//equipe1.remove(i);
     		}
     	}
     	
     	for(int i = 0 ; i < equipe2.size(); i++) {
     		if(!(equipe2.get(i).isPlaying())) {
     			joueurRemp2.add(equipe2.get(i));
-    			//equipe2.remove(i);
     		}
     	}
     	
@@ -319,8 +398,6 @@ public class RealTimeController {
 	   	            break;
    	            }
         	}
-	         
-
         } else {
             yellow1.setVisible(false);
             blue1.setVisible(false);
@@ -345,9 +422,7 @@ public class RealTimeController {
    @FXML
    public void remplacer2() {
 	   remplacer(personTable2, joueurRemp2, equipe2);
-   }
-   
-   
+   }  
    
    public void remplacer(TableView<Person> tabPers, ObservableList<Person> tabRemp, ObservableList<Person> tabEq) {
 	   Person selectedPerson = tabPers.getSelectionModel().getSelectedItem();
@@ -355,7 +430,6 @@ public class RealTimeController {
            boolean okClicked = Main.showSwitchWindow(selectedPerson, tabRemp);
            if (okClicked) {
                selectedPerson.setIsPlaying(false);
-               
                for(int i = 0; i < tabEq.size(); i++) {
             	   if(!(tabEq.get(i).isPlaying())) {
             		   for(int j = 0; j< tabRemp.size(); j++) {
@@ -372,15 +446,13 @@ public class RealTimeController {
             	   }
                }
            }
-
        } else {
            // Nothing selected.
            Alert alert = new Alert(AlertType.WARNING);
            alert.initOwner(Main.getPrimaryStage());
-           alert.setTitle("No Selection");
-           alert.setHeaderText("No Person Selected");
-           alert.setContentText("Please select a person in the table.");
-
+           alert.setTitle("Aucune personne selectionnee");
+           alert.setHeaderText("Aucune personne n'est selectionnee");
+           alert.setContentText("Merci de bien vouloir selectionner une personne.");
            alert.showAndWait();
        }
    }
@@ -396,9 +468,15 @@ public class RealTimeController {
 		// Nothing selected.
            Alert alert = new Alert(AlertType.WARNING);
            alert.initOwner(Main.getPrimaryStage());
+
            alert.setTitle("Aucune personne n'a ete selectionnee");
-           alert.setHeaderText("Aucune persone n'est selectionnee");
-           alert.setContentText("Merci de bien vouloir selectionner une persone.");
+           alert.setHeaderText("Aucune personne n'est selectionnee");
+           alert.setContentText("Merci de bien vouloir selectionner une personne.");
+
+
+           alert.setTitle("Aucune personne selectionnee");
+           alert.setHeaderText("Aucune personne n'est selectionnee");
+           alert.setContentText("Merci de bien vouloir selectionner une personne.");
 
            alert.showAndWait();
 	   }
@@ -414,9 +492,13 @@ public class RealTimeController {
 		// Nothing selected.
            Alert alert = new Alert(AlertType.WARNING);
            alert.initOwner(Main.getPrimaryStage());
+
            alert.setTitle("Aucune personne n'a ete selectionnee");
-           alert.setHeaderText("Aucune persone n'est selectionnee");
-           alert.setContentText("Merci de bien vouloir selectionner une persone.");
+
+           alert.setTitle("Aucune personne selectionnee");
+
+           alert.setHeaderText("Aucune personne n'est selectionnee");
+           alert.setContentText("Merci de bien vouloir selectionner une personne.");
            alert.showAndWait();
 	   }
    }
@@ -431,9 +513,15 @@ public void addRed(TableView<Person> tabPers, int nb) {
 		// Nothing selected.
            Alert alert = new Alert(AlertType.WARNING);
            alert.initOwner(Main.getPrimaryStage());
+
            alert.setTitle("Aucune personne n'a ete selectionnee");
-           alert.setHeaderText("Aucune persone n'est selectionnee");
-           alert.setContentText("Merci de bien vouloir selectionner une persone.");
+           alert.setHeaderText("Aucune personne n'est selectionnee");
+           alert.setContentText("Merci de bien vouloir selectionner une personne.");
+
+
+           alert.setTitle("Aucune personne selectionnee");
+           alert.setHeaderText("Aucune personne n'est selectionnee");
+           alert.setContentText("Merci de bien vouloir selectionner une personne.");
 
            alert.showAndWait();
 	   }
@@ -450,9 +538,15 @@ public void addBlue(TableView<Person> tabPers, int nb) {
 		// Nothing selected.
         Alert alert = new Alert(AlertType.WARNING);
         alert.initOwner(Main.getPrimaryStage());
+
         alert.setTitle("Aucune personne n'a ete selectionnee");
-        alert.setHeaderText("Aucune persone n'est selectionnee");
-        alert.setContentText("Merci de bien vouloir selectionner une persone.");
+        alert.setHeaderText("Aucune personne n'est selectionnee");
+        alert.setContentText("Merci de bien vouloir selectionner une personne.");
+
+
+        alert.setTitle("Aucune personne selectionnee");
+        alert.setHeaderText("Aucune personne n'est selectionnee");
+        alert.setContentText("Merci de bien vouloir selectionner une personne.");
 
         alert.showAndWait();
 	   }
@@ -514,6 +608,8 @@ public void addShoot(TableView<Person> tabPers, int nb) {
 	    	    } finally { 
 	    	        dragEvent.setDropCompleted(success); 
 	    	        dragEvent.consume(); 
+	    	        cir_ter.setDisable(true);
+		    	    addBut(nb);
 	    	    } 
 	    	});
 		   
@@ -527,8 +623,7 @@ public void addShoot(TableView<Person> tabPers, int nb) {
 	    	    }
 	    	  
 	    	    dragEvent.consume();
-	    	    cir_ter.setDisable(true);
-	    	    addBut(nb);
+	    	    
 	    	});
 		   
 		   
@@ -536,9 +631,15 @@ public void addShoot(TableView<Person> tabPers, int nb) {
 		// Nothing selected.
      Alert alert = new Alert(AlertType.WARNING);
      alert.initOwner(Main.getPrimaryStage());
+
      alert.setTitle("Aucune personne n'a ete selectionnee");
-     alert.setHeaderText("Aucune persone n'est selectionnee");
-     alert.setContentText("Merci de bien vouloir selectionner une persone.");
+     alert.setHeaderText("Aucune personne n'est selectionnee ou le joueur est l'entraineur");
+     alert.setContentText("Merci de bien vouloir selectionner une personne valide.");
+
+     alert.setTitle("Aucune personne selectionnee");
+     alert.setHeaderText("Aucune personne n'est selectionnee");
+     alert.setContentText("Merci de bien vouloir selectionner une personne.");
+
 
      alert.showAndWait();
 	   }
@@ -707,6 +808,79 @@ public void addBut(int nb) {
 		
 	}
 }
+
+	public void addTempsMorts(int nb) {
+		if (nb ==1) {
+			nbTM1++;
+			switch(nbTM1) {
+				case 1:
+					tempsMorts11.setSelected(true);
+					break;
+				case 2:
+					tempsMorts12.setSelected(true);
+					break;
+				case 3:
+					tempsMorts13.setSelected(true);
+					break;
+				case 4:
+					Alert alert = new Alert(AlertType.WARNING);
+				     alert.initOwner(Main.getPrimaryStage());
+				     alert.setTitle("Plus TM");
+				     alert.setHeaderText("Plus de temps morts disponible");
+				     alert.setContentText("Continuez match.");
+
+				     alert.showAndWait();
+				     break;
+			}
+			if (nbTM1 <= 3) {
+				btnTempsMorts1.setDisable(true);
+				btnTempsMorts2.setDisable(true);
+				chronoPauseT1 = false;
+				
+				
+			}
+			
+		}else {
+			nbTM2++;
+			switch(nbTM2) {
+				case 1:
+					tempsMorts21.setSelected(true);
+					break;
+				case 2:
+					tempsMorts22.setSelected(true);
+					break;
+				case 3:
+					tempsMorts23.setSelected(true);
+					break;
+				case 4:
+					Alert alert = new Alert(AlertType.WARNING);
+				     alert.initOwner(Main.getPrimaryStage());
+				     alert.setTitle("Plus TM");
+				     alert.setHeaderText("Plus de temps morts disponible");
+				     alert.setContentText("Continuez match.");
+
+				     alert.showAndWait();
+				     break;
+			}
+			if (nbTM2 <= 3) {
+				btnTempsMorts1.setDisable(true);
+				btnTempsMorts2.setDisable(true);
+				chronoPauseT2 = false;
+				
+			}
+			
+		}
+	}
+	
+	@FXML
+	public void addTempsMorts1() {
+		addTempsMorts(1);
+	}
+	
+	@FXML
+	public void addTempsMorts2() {
+		addTempsMorts(2);
+	}
 
 	@FXML
 	public void addShoot1() {

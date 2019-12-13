@@ -43,7 +43,7 @@
                 <RowConstraints maxHeight="190.0" minHeight="10.0" prefHeight="98.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TableView fx:id="personTable1" fixedCellSize="34.0" prefHeight="200.0" prefWidth="200.0">
+                  <TableView fx:id="personTable1" fixedCellSize="32.0" prefHeight="200.0" prefWidth="200.0">
                     <columns>
                       <TableColumn fx:id="numberColumn1" prefWidth="75.0" text="N°" />
                       <TableColumn fx:id="lastNameColumn1" prefWidth="75.0" text="Nom" />
@@ -53,8 +53,11 @@
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
                   </TableView>
-                  <TableView fx:id="personTable2" fixedCellSize="34.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
+                  <TableView fx:id="personTable2" fixedCellSize="32.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
                     <columns>
                       <TableColumn fx:id="numberColumn2" prefWidth="75.0" text="N°" />
                       <TableColumn fx:id="lastNameColumn2" prefWidth="75.0" text="Nom" />
@@ -64,8 +67,11 @@
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
+                     <padding>
+                        <Insets bottom="100.0" />
+                     </padding>
                   </TableView>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="8.0" GridPane.rowIndex="1">
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="8.0" style="-fx-background-color: E9F5FF;" GridPane.rowIndex="1">
                      <children>
                         <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#remplacer1" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -120,7 +126,7 @@
                            <children>
                               <HBox alignment="CENTER" prefHeight="40.0" prefWidth="100.0">
                                  <children>
-                                    <Label text="0">
+                                    <Label fx:id="chronoMinuteT1" text="00">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -130,19 +136,22 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Label text="0">
+                                    <Label fx:id="chronoSecondeT1" text="00">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
                                  </children>
                               </HBox>
-                              <Button mnemonicParsing="false" text="Button" />
+                              <Button fx:id="btnTempsMorts1" mnemonicParsing="false" onAction="#addTempsMorts1" text="Ajout temps mort">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font></Button>
                               <HBox alignment="CENTER" prefHeight="40.0" prefWidth="100.0" spacing="10.0">
                                  <children>
-                                    <RadioButton disable="true" mnemonicParsing="false" />
-                                    <RadioButton disable="true" mnemonicParsing="false" />
-                                    <RadioButton disable="true" mnemonicParsing="false" />
+                                    <RadioButton fx:id="tempsMorts11" disable="true" mnemonicParsing="false" />
+                                    <RadioButton fx:id="tempsMorts12" disable="true" mnemonicParsing="false" />
+                                    <RadioButton fx:id="tempsMorts13" disable="true" mnemonicParsing="false" />
                                  </children>
                               </HBox>
                            </children>
@@ -152,13 +161,13 @@
                         <Insets left="8.0" />
                      </padding>
                   </HBox>
-                  <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="312.0" prefHeight="100.0" prefWidth="200.0" spacing="8.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                  <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="312.0" prefHeight="100.0" prefWidth="200.0" spacing="8.0" style="-fx-background-color: FFD895;" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <children>
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                            <children>
                               <HBox alignment="CENTER" prefHeight="40.0" prefWidth="100.0">
                                  <children>
-                                    <Label text="0">
+                                    <Label fx:id="chronoMinuteT2" text="00">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -168,19 +177,22 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Label text="0">
+                                    <Label fx:id="chronoSecondeT2" text="00">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
                                  </children>
                               </HBox>
-                              <Button mnemonicParsing="false" text="Button" />
+                              <Button fx:id="btnTempsMorts2" mnemonicParsing="false" onAction="#addTempsMorts2" text="Ajout temps mort">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font></Button>
                               <HBox alignment="CENTER" prefHeight="40.0" prefWidth="100.0" spacing="10.0">
                                  <children>
-                                    <RadioButton disable="true" mnemonicParsing="false" />
-                                    <RadioButton disable="true" mnemonicParsing="false" />
-                                    <RadioButton disable="true" mnemonicParsing="false" />
+                                    <RadioButton fx:id="tempsMorts21" disable="true" mnemonicParsing="false" />
+                                    <RadioButton fx:id="tempsMorts22" disable="true" mnemonicParsing="false" />
+                                    <RadioButton fx:id="tempsMorts23" disable="true" mnemonicParsing="false" />
                                  </children>
                               </HBox>
                            </children>
@@ -239,7 +251,7 @@
                         <Insets right="8.0" />
                      </padding>
                   </HBox>
-                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.columnIndex="1">
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" style="-fx-background-color: E9F5FF;" GridPane.columnIndex="1">
                      <children>
                         <ImageView fx:id="yellow1" fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" visible="false">
                            <image>
@@ -277,7 +289,7 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" layoutX="522.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.columnIndex="2">
+                  <VBox alignment="CENTER" layoutX="522.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0" style="-fx-background-color: FFD895;" GridPane.columnIndex="2">
                      <children>
                         <ImageView fx:id="yellow2" fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" visible="false">
                            <image>
@@ -315,7 +327,7 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: E9F5FF;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
                         <Label text="0">
                            <font>
@@ -324,7 +336,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: FFD895;" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <children>
                         <Label text="0">
                            <font>
@@ -347,7 +359,7 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                            <children>
-                              <Label fx:id="chronoMinute" text="0">
+                              <Label fx:id="chronoMinute" text="00">
                                  <padding>
                                     <Insets left="180.0" />
                                  </padding>
@@ -360,7 +372,7 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="chronoSeconde" text="0">
+                              <Label fx:id="chronoSeconde" text="00">
                                  <padding>
                                     <Insets right="30.0" />
                                  </padding>
@@ -412,7 +424,7 @@
                         </ImageView>
                      </children>
                      <padding>
-                        <Insets right="5.0" />
+                        <Insets left="10.0" right="10.0" />
                      </padding>
                   </HBox>
                </right>
@@ -426,7 +438,7 @@
                         </ImageView>
                      </children>
                      <padding>
-                        <Insets left="5.0" />
+                        <Insets left="10.0" right="10.0" />
                      </padding>
                   </HBox>
                </left>

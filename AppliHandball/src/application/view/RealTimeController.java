@@ -167,6 +167,7 @@ public class RealTimeController {
     @FXML 
     private Label score2;
     
+    private boolean pas_affiche = true;
     
     private int scor1 = 0;
     private int scor2 = 0;
@@ -198,7 +199,8 @@ public class RealTimeController {
 	            	}
 	            	Platform.runLater(new Runnable() {
 	            		public void run () {
-	            			if(min==5) {
+	            			if(min==10 && pas_affiche) {
+	            			 pas_affiche = false;
 	   	            		 Alert alert = new Alert(AlertType.INFORMATION);
 	   	                     alert.initOwner(Main.getPrimaryStage());
 	   	                     alert.setTitle("Fini");
@@ -206,6 +208,7 @@ public class RealTimeController {
 	   	                     alert.setContentText("Vous allez etre redirige vers le menu principal.");
 	   	                     alert.showAndWait();
 	   	                     //TODO enregistrer les stats du match
+	   	                     
 	   	                     
 	   	                     Main.changeScene("../view/StartMenu.fxml", 500, 500);
 	            			}
